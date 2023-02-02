@@ -1,6 +1,6 @@
 <h1 class="text-center text-dark my-4 ">LOGIN</h1>
 <div class="row">
-    <div class="col-md-6 offset-md-3 my-4   ">
+    <div class="col-md-6 offset-md-3 my-4">
         <form #form="ngForm" (ngSubmit)="onSubmit(form)">
             <div class="container w-50">
                 <label for="email">Email</label>
@@ -21,7 +21,7 @@
                     <div *ngIf="email.errors?.['pattern']">Email is invalid.</div>
                 </div>
             </div>
-            <div class="container w-50 mt-4">
+            <div class="container w-50 mt-3">
                 <label for="password">Password</label>
                 <input type="password" name="password" [(ngModel)]="model.password" #password="ngModel" class="form-control" minlength="6" maxlength="25" required>
                 <div class="text-danger" *ngIf="password.invalid && password.touched">
@@ -30,8 +30,8 @@
                     <div *ngIf="password.errors?.['required']">Password field cannot be empty.</div>
                 </div>
             </div>
-            <div class="container d-grid my-3 w-50 mt-4">
-                <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Get OTP to Login</button>
+            <div class="container d-grid my-3 w-50 mt-3">
+                <button type="submit" class="btn btn-primary" [disabled]="form.invalid">LOGIN</button>
             </div>
             <div class="container text-center">
                 <a href="" class="text-danger nav-link">Forgot Password?</a>

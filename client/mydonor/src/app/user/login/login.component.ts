@@ -7,11 +7,10 @@ import { Component } from '@angular/core';
 })
 
 export class LoginComponent {
-  model = {
+  model:any = {
       email: '',
       password: ''
   };
-
 
   onSubmit(form:any) {
       console.log(form);
