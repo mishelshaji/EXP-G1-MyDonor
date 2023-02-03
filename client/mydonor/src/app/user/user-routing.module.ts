@@ -10,7 +10,9 @@ const routes: Routes = [
     path: '', component: UserLayoutComponent, children: [
       { path: '', component: LandingpageComponent },
       { path: 'login', component: LoginComponent }
-    ];
+    ]
+  }
+]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
