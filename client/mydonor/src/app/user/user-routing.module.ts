@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router'; 
+import { RouterModule, Routes } from '@angular/router';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { UserLayoutComponent } from './user-layout/user-layout.component';
 
 
 const routes: Routes = [
   {
-    path: '', component: UserLayoutComponent, children:[
-    {path:'abcd',component:LandingpageComponent}
-  ] }
+    path: '', component: UserLayoutComponent, children: [
+      { path: '', component: LandingpageComponent }
+    ]
+  }
 ];
 
 @NgModule({

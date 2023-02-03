@@ -2,6 +2,9 @@
     width: 100%;
     height: 100vh;
     background-color: #fff;
+    background: url("../../../assets/image/Background.png");
+    background-position: center;
+    background-size: cover;
 }
 
 .slogan {
@@ -33,13 +36,18 @@
 .searchholder {
     flex-basis: 30%;
     height: fit-content;
+}
+.searchholder form{
+    width: 100%;
+    height: fit-content;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: #eee;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid #fff;
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: 1rem;
-
 }
 
 #bloodgroup {
@@ -66,13 +74,17 @@
     position: relative;
 }
 
+#search:active {
+    background-color: #d30000;
+}
+
 #search::after {
     content: '';
     position: absolute;
     left: 0;
     bottom: 0;
     width: 0;
-    height: 5px;
+    height: 2px;
     border-radius: 5px;
     background-color: #d30000;
     transition: 0.5s;
@@ -82,7 +94,7 @@
     width: 100%;
 }
 
-.searchholder button {
+.searchholder form button {
     flex-basis: 95%;
     border: 0;
     outline: 0;
@@ -94,26 +106,32 @@
     position: relative;
 }
 
-.searchholder button::after {
+.searchholder form button:active {
+    background-color: #333;
+}
+
+.searchholder form button::after {
     content: '';
     position: absolute;
     left: 0;
     bottom: 0;
     width: 0;
-    height: 5px;
+    height: 2px;
     border-radius: 5px;
     background-color: #333;
     transition: 0.5s;
 }
 
-.searchholder button:hover::after {
+.searchholder form button:hover::after {
     width: 100%;
 }
 
 .dashboard {
     flex-basis: 40%;
     height: 30rem;
-    background-color: #eee;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid #fff;
+    backdrop-filter: blur(10px);
     margin-left: 10rem;
     border-radius: 10px;
     padding: 1rem;
@@ -122,7 +140,7 @@
     overflow: hidden;
 }
 
-.userinfoholder {
+.userinfo-holder {
     width: 100%;
     background-color: #333;
     display: flex;
@@ -132,11 +150,11 @@
     padding: 0.5rem 2rem;
 }
 
-.userinfoholder p {
+.userinfo-holder p {
     font-size: 1.5rem;
 }
 
-.userinfoholder img {
+.userinfo-holder img {
     width: 80px;
     border-radius: 50%;
     margin-right: 1rem;
