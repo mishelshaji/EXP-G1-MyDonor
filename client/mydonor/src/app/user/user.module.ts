@@ -5,13 +5,15 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from "@angular/forms";
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { UserLayoutComponent } from './user-layout/user-layout.component';
+import { LandingNavbarComponent } from './landing-navbar/landing-navbar.component';
 
 
 @NgModule({
   declarations: [
     LandingpageComponent,
     UserLayoutComponent,
-    LoginComponent
+    LoginComponent,
+    LandingNavbarComponent
   ],
   imports: [
     CommonModule,
