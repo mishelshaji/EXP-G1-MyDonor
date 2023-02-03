@@ -1,0 +1,52 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    padding: 0 1rem;
+    width: 100%;
+    height: 3rem;
+}
+
+.logo-holder {
+    max-width: 10rem;
+}
+
+.logo-holder img {
+    width: 100%;
+    height: 100%;
+}
+
+.middle-menu{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.middle-menu ul li {
+    display: inline-flex;
+    list-style: none;
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    align-items: center;
+}
+
+.middle-menu ul li a {
+    text-decoration: none;
+    color: #d30000;
+}
+
+.right-menu ul li {
+    display: inline-flex;
+    list-style: none;
+    font-size: 1.5rem;
+    margin: 0 1rem;
+}
+
+.right-menu ul li a {
+    text-decoration: none;
+    color: #d30000;
+}
