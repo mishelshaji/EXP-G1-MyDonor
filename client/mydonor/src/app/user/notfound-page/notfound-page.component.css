@@ -1,0 +1,11 @@
+.not-found{
+    height: 100vh;
+    background-color: #eee;
+    display: grid;
+    place-items: center;
+}
+.not-found h1{
+    color: #ff004f;
+    font-weight: 600;
+    font-size: 5rem;
+}
