@@ -172,12 +172,12 @@
         margin: 2rem 1rem;
     }
 
-    #bloodgroup{
+    #bloodgroup {
         width: 90%;
         margin: 1rem 0;
     }
 
-    #district{
+    #district {
         width: 90%;
     }
 }
@@ -196,7 +196,7 @@
     position: relative;
 }
 
-#about h1::after{
+#about h1::after {
     content: '';
     width: 0;
     height: 2px;
@@ -207,18 +207,18 @@
     transition: 0.5s;
 }
 
-#about h1:hover::after{
+#about h1:hover::after {
     width: 100%;
 }
 
-#about p{
+#about p {
     color: #333;
     font-size: 1rem;
     text-align: justify;
 }
 
-@media only screen and (max-width:900px){
-    #about{
+@media only screen and (max-width:900px) {
+    #about {
         padding: 1rem;
     }
 }
