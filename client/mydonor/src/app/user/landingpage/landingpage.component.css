@@ -37,7 +37,8 @@
     flex-basis: 30%;
     height: fit-content;
 }
-.searchholder form{
+
+.searchholder form {
     width: 100%;
     height: fit-content;
     display: flex;
@@ -169,5 +170,55 @@
     .dashboard {
         flex-basis: 100%;
         margin: 2rem 1rem;
+    }
+
+    #bloodgroup{
+        width: 90%;
+        margin: 1rem 0;
+    }
+
+    #district{
+        width: 90%;
+    }
+}
+
+/* ----------------about section------------- */
+
+#about {
+    height: fit-content;
+    padding: 5rem;
+}
+
+#about h1 {
+    font-size: 3rem;
+    color: #333;
+    width: fit-content;
+    position: relative;
+}
+
+#about h1::after{
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: #d30000;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    transition: 0.5s;
+}
+
+#about h1:hover::after{
+    width: 100%;
+}
+
+#about p{
+    color: #333;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+@media only screen and (max-width:900px){
+    #about{
+        padding: 1rem;
     }
 }
