@@ -1,5 +1,5 @@
 .stockview {
-    width: 70rem;
+    width: 100%;
     height: 4rem;
     background-color: #eee;
     border-radius: 10px;
@@ -7,8 +7,11 @@
     padding: 0 2rem;
     align-items: center;
     margin-top: 1rem;
+    transition: .5s;
 }
-
+.stockview:hover{
+    transform: scale(110%);
+}
 .stockview h1 {
     color: #d30000;
     margin-right: 2rem;
