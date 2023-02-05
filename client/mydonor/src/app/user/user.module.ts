@@ -7,6 +7,7 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
 import { UserLayoutComponent } from './user-layout/user-layout.component';
 import { LandingNavbarComponent } from './landing-navbar/landing-navbar.component';
 import { NotfoundPageComponent } from './notfound-page/notfound-page.component';
+
 @NgModule({
   declarations: [
     LandingpageComponent,

@@ -5,13 +5,12 @@ import { UserLayoutComponent } from './user-layout/user-layout.component';
 import { LoginComponent } from './login/login.component';
 import { NotfoundPageComponent } from './notfound-page/notfound-page.component';
 
-
 const routes: Routes = [
   {
     path: '', component: UserLayoutComponent, children: [
       { path: '', component: LandingpageComponent },
       { path: 'login', component: LoginComponent },
-      {path: '**',component:NotfoundPageComponent}
+      { path: '**', component: NotfoundPageComponent }
     ]
   }
 ]
