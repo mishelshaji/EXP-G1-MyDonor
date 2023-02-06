@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AdminNavbarComponent } from './admin-navbar.component';
 
 describe('AdminNavbarComponent', () => {
@@ -8,9 +7,9 @@ describe('AdminNavbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminNavbarComponent ]
+      declarations: [AdminNavbarComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(AdminNavbarComponent);
     component = fixture.componentInstance;

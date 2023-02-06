@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { StockviewComponent } from './stockview.component';
 
 describe('StockviewComponent', () => {
@@ -8,9 +7,9 @@ describe('StockviewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StockviewComponent ]
+      declarations: [StockviewComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(StockviewComponent);
     component = fixture.componentInstance;
