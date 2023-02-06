@@ -1,0 +1,52 @@
+.hero {
+    height: 100vh;
+    background: url(../../../assets/image/Background.png);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    place-items: center;
+}
+
+.hero form {
+    width: 60%;
+    height: 70%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.hero form textarea {
+    border: 0;
+    outline: 0;
+    height: 80%;
+    margin: 0 0 1rem 0;
+    border-radius: 10px;
+    padding: 3rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    border: 1px solid #fff;
+    font-weight: 600;
+    transition: 0.8s;
+}
+
+.hero form textarea:focus {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.hero form button {
+    border: 0;
+    outline: 0;
+    height: 3rem;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+    background-color: #d30000;
+    transition: 0.5s;
+}
+
+.hero form button:hover {
+    background-color: #333;
+}
