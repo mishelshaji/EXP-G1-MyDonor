@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LandingNavbarComponent } from './landing-navbar.component';
 
 describe('LandingNavbarComponent', () => {
@@ -8,9 +7,9 @@ describe('LandingNavbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LandingNavbarComponent ]
+      declarations: [LandingNavbarComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(LandingNavbarComponent);
     component = fixture.componentInstance;
