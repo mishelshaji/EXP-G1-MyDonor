@@ -1,0 +1,71 @@
+.hero {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background: url(../../../assets/image/Background.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.profile-holder {
+    height: fit-content;
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 3px solid rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.profile-holder a img {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 30px;
+    margin: 0;
+}
+
+.profile-holder img {
+    width: 150px;
+    border-radius: 50%;
+    margin: 3rem 5rem;
+}
+
+.userdata-holder {
+    color: #fff;
+    text-align: center;
+}
+
+.userdata-holder h1 {
+    font-weight: 300;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+}
+
+.userdata-holder p {
+    color: #d30000;
+    background-color: #000;
+    padding: 2px 10px;
+    font-weight: 800;
+    margin: 0;
+    transition: 0.5s;
+}
+
+.userdata-holder p:hover {
+    letter-spacing: 2px;
+}
+
+.userdata-holder h2 {
+    font-size: 1.2rem;
+    font-weight: 100;
+    margin: 5px 0;
+}
+
+.userdata-holder h3 {
+    font-weight: 100;
+    max-width: 20rem;
+    font-size: 1rem;
+    padding: 0 2rem;
+    text-align: justify;
+}
