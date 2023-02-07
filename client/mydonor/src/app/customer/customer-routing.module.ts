@@ -4,8 +4,8 @@ import { BookingComponent } from './booking/booking.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
-  {path:'signup', component:SignupComponent},
-  {path:'booking', component:BookingComponent}
+  {path : 'signup', component:SignupComponent},
+  {path : 'booking', component:BookingComponent}
 ];
 
 @NgModule({
