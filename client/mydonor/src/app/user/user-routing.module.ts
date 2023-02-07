@@ -10,9 +10,9 @@ const routes: Routes = [
     path: '', component: UserLayoutComponent, children: [
       { path: '', component: LandingpageComponent },
       { path: 'login', component: LoginComponent },
-      { path: '**', component: NotfoundPageComponent }
     ]
-  }
+  },
+  { path: '**', component: NotfoundPageComponent }
 ]
 
 @NgModule({
