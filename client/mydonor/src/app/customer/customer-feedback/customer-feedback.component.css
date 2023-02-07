@@ -32,6 +32,10 @@
     transition: 0.8s;
 }
 
+.hero form textarea::placeholder {
+    color: #fff;
+}
+
 .hero form textarea:focus {
     background-color: rgba(0, 0, 0, 0.8);
 }
