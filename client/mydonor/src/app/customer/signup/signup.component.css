@@ -1,0 +1,24 @@
+#signup{
+    background-color:#86949a4f;
+    border-radius: 5%;
+}
+.main{
+    background-image: url('../../../assets/images/background.png');
+    background-position: center;
+    background-size: cover;
+}
+.signup-text-styles{
+   color: #333;
+   font-weight: bold;
+}
+.inputbox-outline{
+    border: none;
+}
+.div-spacing{
+    display: flex;
+    justify-content: space-evenly;
+}
+.heading-text{
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
