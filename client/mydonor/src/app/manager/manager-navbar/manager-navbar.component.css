@@ -2,8 +2,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
+    background-color: #eee;
     position: fixed;
     padding: 0 1rem;
     width: 100%;
