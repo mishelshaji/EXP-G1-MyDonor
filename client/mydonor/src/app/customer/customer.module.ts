@@ -4,16 +4,22 @@ import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerLayoutComponent } from './customer-layout/customer-layout.component';
 import { CustomerNavbarComponent } from './customer-navbar/customer-navbar.component';
 import { CustomerFeedbackComponent } from './customer-feedback/customer-feedback.component';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
+import { CustomerProfileEditComponent } from './customer-profile-edit/customer-profile-edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     CustomerLayoutComponent,
     CustomerNavbarComponent,
-    CustomerFeedbackComponent
+    CustomerFeedbackComponent,
+    CustomerProfileComponent,
+    CustomerProfileEditComponent
   ],
   imports: [
     CommonModule,
-    CustomerRoutingModule
+    CustomerRoutingModule,
+    FormsModule
   ]
 })
 export class CustomerModule { }
