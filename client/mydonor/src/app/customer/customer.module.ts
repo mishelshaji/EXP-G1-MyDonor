@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomerRoutingModule } from './customer-routing.module';
+import { HomepageComponent } from './homepage/homepage.component';
 import { CustomerLayoutComponent } from './customer-layout/customer-layout.component';
 import { CustomerNavbarComponent } from './customer-navbar/customer-navbar.component';
 import { CustomerFeedbackComponent } from './customer-feedback/customer-feedback.component';
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
     CustomerNavbarComponent,
     CustomerFeedbackComponent,
     CustomerProfileComponent,
-    CustomerProfileEditComponent
+    CustomerProfileEditComponent,
+    HomepageComponent
   ],
   imports: [
     CommonModule,
