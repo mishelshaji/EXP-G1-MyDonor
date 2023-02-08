@@ -11,8 +11,8 @@ const routes: Routes = [
     path: '', component: CustomerLayoutComponent, children: [
       { path: 'feedback', component: CustomerFeedbackComponent },
       { path: 'profile', component: CustomerProfileComponent },
-      { path : 'signup', component:SignupComponent },
-      { path : 'booking', component:BookingComponent }
+      { path: 'signup', component: SignupComponent },
+      { path: 'booking', component: BookingComponent }
     ]
   }
 ];

@@ -7,19 +7,24 @@ import { CustomerFeedbackComponent } from './customer-feedback/customer-feedback
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { CustomerProfileEditComponent } from './customer-profile-edit/customer-profile-edit.component';
 import { FormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
+  
   declarations: [
     CustomerLayoutComponent,
     CustomerNavbarComponent,
     CustomerFeedbackComponent,
     CustomerProfileComponent,
-    CustomerProfileEditComponent
+    CustomerProfileEditComponent,
+    SignupComponent
   ],
+
   imports: [
     CommonModule,
     CustomerRoutingModule,
     FormsModule
+
   ]
 })
 export class CustomerModule { }
