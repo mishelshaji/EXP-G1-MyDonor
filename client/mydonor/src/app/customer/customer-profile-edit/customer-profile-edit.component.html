@@ -1,0 +1,42 @@
+<div class="profile-holder">
+    <img src="../../../assets/image/avatar-image.jpg" alt="customer-profile-picture">
+    <div class="userdata-holder">
+        <form #form="ngForm">
+            <label for="name">Name</label>
+            <input type="text" name="name" #name="ngModel" placeholder="Enter Name" [(ngModel)]="updateModel.name"
+                max="30" min="1" required>
+            <div class="text-danger" *ngIf="name.touched && name.invalid">
+                <div *ngIf="name.errors?.['required']">Name is required</div>
+                <div *ngIf="name.errors?.['min']">Name is too short</div>
+                <div *ngIf="name.errors?.['max']">Name is too large</div>
+            </div>
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Username" #username="ngModel"
+                [(ngModel)]="updateModel.username" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+            <div class="text-danger" *ngIf="username.touched && username.invalid">
+                <div *ngIf="username.errors?.['required']">Username is required</div>
+                <div *ngIf="username.errors?.['pattern']">Username is invalid</div>
+            </div>
+            <label for="address">Address</label>
+            <input type="text" name="address" #address="ngModel" placeholder="Enter Address"
+                [(ngModel)]="updateModel.address" required>
+            <div class="text-danger" *ngIf="address.touched && address.invalid">
+                <div *ngIf="name.errors?.['required']">Address is required</div>
+            </div>
+            <label for="mobile">Mobile</label>
+            <input type="text" name="mobile" placeholder="Enter Mobile" [(ngModel)]="updateModel.mobile" required
+                max="12" #mobile="ngModel" pattern="[6-9]{1}[0-9]{9}">
+            <div class="text-danger" *ngIf="mobile.touched && mobile.invalid">
+                <div *ngIf="mobile.errors?.['required']">Mobile is required</div>
+                <div *ngIf="mobile.errors?.['pattern']">Mobile Number is not valid</div>
+            </div>
+            <label for="password">Enter password to confirm changes</label>
+            <input type="password" #password="ngModel" name="password" placeholder="Enter Password"
+                [(ngModel)]="updateModel.password" required>
+            <div class="text-danger" *ngIf="password.touched && password.invalid">
+                <div *ngIf="password.errors?.['required']">Password is required</div>
+            </div>
+            <button type="submit" [disabled]="form.invalid">UPDATE</button>
+        </form>
+    </div>
+</div>

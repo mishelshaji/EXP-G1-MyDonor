@@ -1,0 +1,105 @@
+<div class="main">
+  <div id="signup" class="w-50 ml-0 mr-0 mx-auto p-5 mt-2 mb-5 border border-light">
+    <div class="text-danger heading-text d-flex justify-content-center ">REGISTRATION</div>
+    <form #form="ngForm">
+      <div class="mt-2">
+        <label for="firstname"><span class="signup-text-styles">First Name</span></label>
+        <input class="inputbox-outline form-control" #name="ngModel" type="text" name="firstname"
+          [(ngModel)]="userData.firstName" maxlength="15" required>
+      </div>
+      <div class="text-danger" *ngIf="name.invalid && name.touched">
+        <div *ngIf="name.errors?.['required']">first name is required.</div>
+      </div>
+      <div class="mt-2">
+        <label for="lastname"><span class="signup-text-styles">Last Name</span></label>
+        <input class="inputbox-outline form-control" #lname="ngModel" type="text" name="lastname"
+          [(ngModel)]="userData.lastName" maxlength="15" required>
+      </div>
+      <div class="text-danger" *ngIf="lname.invalid && lname.touched">
+        <div *ngIf="lname.errors?.['required']">last name is required.</div>
+      </div>
+      <div class="mt-2">
+        <label for="email"><span class="signup-text-styles">Email</span></label>
+        <input class="inputbox-outline form-control" type="email" name="email" [(ngModel)]="userData.email"
+           #email="ngModel" required>
+      </div>
+      <div class="text-danger" *ngIf="email.invalid && email.touched">
+        <div *ngIf="email.errors?.['minlength']">Email is too short.</div>
+        <div *ngIf="email.errors?.['required']">Email is required.</div>
+        <div *ngIf="email.errors?.['pattern']">Email is invalid.</div>
+      </div>
+      <div class="mt-2">
+        <label for="phone"><span class="signup-text-styles">Phone</span></label>
+        <input class="inputbox-outline form-control" type="text" name="phone" [(ngModel)]="userData.phone"
+          minlength="10" maxlength="10" pattern="[6-9]{1}[0-9]{9}" #phone="ngModel" required>
+      </div>
+      <div class="text-danger" *ngIf="phone.invalid && phone.touched">
+        <div *ngIf="phone.errors?.['minlength']">number is not valid.</div>
+        <div *ngIf="phone.errors?.['required']">number is required.</div>
+        <div *ngIf="phone.errors?.['maxlength']">number is not valid.</div>
+        <div *ngIf="phone.errors?.['pattern']">phone is invalid.</div>
+      </div>
+      <div class="mt-2">
+        <label for="email"><span class="signup-text-styles">District</span></label>
+        <input class="inputbox-outline form-control" type="text" name="district" [(ngModel)]="userData.district"
+          minlength="3" maxlength="15" #district="ngModel" required>
+      </div>
+      <div class="text-danger" *ngIf="district.invalid && district.touched">
+        <div *ngIf="district.errors?.['required']">District is required.</div>
+      </div>
+      <div class="mt-2">
+        <label for="email"><span class="signup-text-styles">Blood Group</span> </label>
+        <input class="inputbox-outline form-control" type="text" name="email" [(ngModel)]="userData.bloodgroup"
+          #blood="ngModel" required>
+      </div>
+      <div class="text-danger" *ngIf="blood.invalid && blood.touched">
+        <div *ngIf="blood.errors?.['required']">Blood group is required.</div>
+      </div>
+      <div class="mt-2">
+        <label for="email"><span class="signup-text-styles">DOB</span></label>
+        <input class="inputbox-outline form-control" type="date" name="dob" [(ngModel)]="userData.dob" #dob="ngModel"
+          (change)="handleDob(dob)" required>
+      </div>
+      <div class="text-danger">
+        <div *ngIf="status">Age is less than 18</div>
+      </div>
+      <div class="text-danger" *ngIf="dob.invalid && dob.touched">
+        <div *ngIf="dob.errors?.['required']">Age is required</div>
+      </div>
+      <div class="mt-2">
+        <label><span class="signup-text-styles">Gender</span></label>
+        <label for="male"><span class="signup-text-styles mx-2">Male</span></label>
+        <input type="radio" name="male" [(ngModel)]="userData.gender" #gender="ngModel" required>
+        <label for="female"><span class="signup-text-styles mx-2">Female</span></label>
+        <input type="radio" name="male" [(ngModel)]="userData.phone" required>
+      </div>
+      <div class="mt-2">
+        <label for="email"><span class="signup-text-styles">Password </span></label>
+        <input class="inputbox-outline form-control" type="password" name="password" [(ngModel)]="userData.password"
+          minlength="6" maxlength="15" #password="ngModel" (change)="storePassword($event)" required>
+      </div>
+      <div class="text-danger" *ngIf="password.invalid && password.touched">
+        <div *ngIf="password.errors?.['minlength']">Password is too small.</div>
+        <div *ngIf="password.errors?.['maxlength']">Password is too long.</div>
+        <div *ngIf="password.errors?.['required']">Password is required.</div>
+      </div>
+      <div class="mt-2">
+        <label for="email"><span class="signup-text-styles">Confirm password</span> </label>
+        <input class="inputbox-outline form-control" type="password" name="temporarypass"
+          [(ngModel)]="userData.temporarypass" minlength="6" maxlength="15" #cpassword="ngModel"
+          (change)="handlePassword($event)" required>
+      </div>
+      <div class="text-danger" *ngIf="display">
+        <div>Password doesn't match.</div>
+      </div>
+      <div class="text-danger" *ngIf="password.invalid && password.touched">
+        <div *ngIf="cpassword.errors?.['minlength']">Password is too small.</div>
+        <div *ngIf="cpassword.errors?.['maxlength']">Password is too long.</div>
+        <div *ngIf="cpassword.errors?.['required']">Password is required.</div>
+      </div>
+      <div class="mt-4 d-flex justify-content-center ">
+        <button class="btn btn-danger center" [disabled]="form.invalid">Sign up</button>
+      </div>
+    </form>
+  </div>
+</div>
