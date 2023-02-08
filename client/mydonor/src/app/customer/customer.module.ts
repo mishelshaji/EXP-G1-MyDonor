@@ -6,6 +6,7 @@ import { CustomerNavbarComponent } from './customer-navbar/customer-navbar.compo
 import { CustomerFeedbackComponent } from './customer-feedback/customer-feedback.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { CustomerProfileEditComponent } from './customer-profile-edit/customer-profile-edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CustomerProfileEditComponent } from './customer-profile-edit/customer-p
   ],
   imports: [
     CommonModule,
-    CustomerRoutingModule
+    CustomerRoutingModule,
+    FormsModule
   ]
 })
 export class CustomerModule { }

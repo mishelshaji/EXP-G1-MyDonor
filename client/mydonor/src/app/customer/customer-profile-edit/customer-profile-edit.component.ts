@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./customer-profile-edit.component.css']
 })
 export class CustomerProfileEditComponent {
-
+  UpdateModel = {
+    name: '',
+    username: '',
+    address: '',
+    mobile: '',
+    password: '',
+  };
 }
