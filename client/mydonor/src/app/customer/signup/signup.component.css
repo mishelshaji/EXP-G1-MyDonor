@@ -1,24 +1,62 @@
-#signup{
-    background-color:#86949a4f;
-    border-radius: 5%;
+#signup {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    border: 1px solid #fff;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    width: 50%;
+    padding: 2rem;
 }
-.main{
+
+.main {
     background-image: url('../../../assets/images/background.png');
     background-position: center;
     background-size: cover;
+    display: grid;
+    place-items: center;
 }
-.signup-text-styles{
-   color: #333;
-   font-weight: bold;
+
+span{
+    font-size: 1.2rem;
 }
-.inputbox-outline{
+
+.heading{
+    color: #d30000;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.signup-text-styles {
+    color: #333;
+    font-weight: bold;
+}
+
+.inputbox-outline {
     border: none;
 }
-.div-spacing{
+
+.div-spacing {
     display: flex;
     justify-content: space-evenly;
 }
-.heading-text{
+
+.heading-text {
     font-size: 1.5rem;
     font-weight: bolder;
+}
+
+button{
+    width: 100%;
+    height: 2rem;
+    background: #d30000;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width:900px){
+    #signup{
+        width: 100%;
+    }
 }
