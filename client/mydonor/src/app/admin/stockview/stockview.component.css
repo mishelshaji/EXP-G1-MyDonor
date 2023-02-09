@@ -1,5 +1,5 @@
 .stockview {
-    width: 100%;
+    width: 45rem;
     height: 4rem;
     background-color: #eee;
     border-radius: 10px;
@@ -11,7 +11,7 @@
 }
 
 .stockview:hover {
-    transform: scale(110%);
+    transform: scale(105%);
 }
 
 .stockview h1 {
@@ -33,5 +33,16 @@
     .stockview h1,
     .stockview h2 {
         font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width:1400px) {
+    .stockview {
+        width: 30rem;
+    }
+
+    .stockview h1,
+    .stockview h2 {
+        font-size: 1.2rem;
     }
 }

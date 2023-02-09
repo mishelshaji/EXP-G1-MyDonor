@@ -1,6 +1,16 @@
+.hero {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background: url(../../../assets/image/background.png);
+    background-position: center;
+    background-size: cover;
+}
+
 .profile-holder {
     height: fit-content;
-    width: fit-content;
+    width: 60%;
     background-color: rgba(0, 0, 0, 0.8);
     border: 3px solid rgba(0, 0, 0, 0.8);
     border-radius: 10px;
@@ -36,7 +46,9 @@
 
 label {
     color: #eee;
-    font-weight: 700;
+    font-weight: 400;
+    padding: 0 1rem;
+    margin: 0.5rem 0;
 }
 
 .userdata-holder form input {
@@ -44,6 +56,7 @@ label {
     outline: 0;
     color: #fff;
     background-color: #111;
+    padding: 0 1rem;
 }
 
 .userdata-holder form button {
@@ -58,4 +71,10 @@ label {
 
 .userdata-holder form button:active {
     background-color: #000;
+}
+
+@media only screen and (max-width:900px) {
+    .profile-holder {
+        width: 90%;
+    }
 }

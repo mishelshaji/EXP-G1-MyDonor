@@ -8,6 +8,7 @@ import { CustomerFeedbackComponent } from './customer-feedback/customer-feedback
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { CustomerProfileEditComponent } from './customer-profile-edit/customer-profile-edit.component';
 import { FormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     CustomerFeedbackComponent,
     CustomerProfileComponent,
     CustomerProfileEditComponent,
-    HomepageComponent
+    HomepageComponent,
+    SignupComponent
   ],
   imports: [
     CommonModule,

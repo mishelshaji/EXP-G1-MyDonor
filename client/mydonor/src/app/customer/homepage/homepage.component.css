@@ -46,13 +46,15 @@
     flex-wrap: wrap;
     background-color: rgba(0, 0, 0, 0.1);
     border: 1px solid #fff;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     padding: 1rem;
 }
 
 #bloodgroup {
-    width: 90%;
+    width: 95%;
     border: 0;
     outline: 0;
     padding: 0.5rem;
@@ -61,7 +63,7 @@
 }
 
 #district {
-    width: 90%;
+    width: 95%;
     border: 0;
     outline: 0;
     padding: 0.5rem;
@@ -131,7 +133,9 @@
     height: 30rem;
     background-color: rgba(0, 0, 0, 0.1);
     border: 1px solid #fff;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
     margin-left: 10rem;
     border-radius: 10px;
     padding: 1rem;
