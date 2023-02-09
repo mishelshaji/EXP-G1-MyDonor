@@ -3,15 +3,15 @@
     <div class="d-flex justify-content-center heading">SIGNUP</div>
     <form #form="ngForm">
       <div class="mt-2">
-        <label for="name"><span>Name</span></label>
+        <label for="name">Name</label>
         <input class="inputbox-outline form-control" #name="ngModel" type="text" name="name"
-          [(ngModel)]="userData.lastName" maxlength="25" required>
+          [(ngModel)]="userData.name" maxlength="25" required>
       </div>
       <div class="text-danger" *ngIf="name.invalid && name.touched">
-        <div *ngIf="name.errors?.['required']">last name is required.</div>
+        <div *ngIf="name.errors?.['required']">Name is required</div>
       </div>
       <div class="mt-2">
-        <label for="email"><span>Email</span></label>
+        <label for="email">Email</label>
         <input class="inputbox-outline form-control" type="email" name="email" [(ngModel)]="userData.email"
           #email="ngModel" required>
       </div>
@@ -21,7 +21,7 @@
         <div *ngIf="email.errors?.['pattern']">Email is invalid.</div>
       </div>
       <div class="mt-2">
-        <label for="phone"><span>Phone</span></label>
+        <label for="phone">Phone</label>
         <input class="inputbox-outline form-control" type="text" name="phone" [(ngModel)]="userData.phone"
           minlength="10" maxlength="10" pattern="[6-9]{1}[0-9]{9}" #phone="ngModel" required>
       </div>
@@ -32,7 +32,7 @@
         <div *ngIf="phone.errors?.['pattern']">phone is invalid.</div>
       </div>
       <div class="mt-2">
-        <label for="district"><span>District</span></label>
+        <label for="district">District</label>
         <input class="inputbox-outline form-control" type="text" name="district" [(ngModel)]="userData.district"
           minlength="3" maxlength="15" #district="ngModel" required>
       </div>
@@ -40,7 +40,7 @@
         <div *ngIf="district.errors?.['required']">District is required.</div>
       </div>
       <div class="mt-2">
-        <label for="bloodgroup"><span>Blood Group</span> </label>
+        <label for="bloodgroup">Blood Group </label>
         <input class="inputbox-outline form-control" type="text" name="bloodgroup" [(ngModel)]="userData.bloodgroup"
           #blood="ngModel" required>
       </div>
@@ -48,7 +48,7 @@
         <div *ngIf="blood.errors?.['required']">Blood group is required.</div>
       </div>
       <div class="mt-2">
-        <label for="dob"><span>DOB</span></label>
+        <label for="dob">DOB</label>
         <input class="inputbox-outline form-control" type="date" name="dob" [(ngModel)]="userData.dob" #dob="ngModel"
           (change)="handleDob(dob)" required>
       </div>
@@ -59,14 +59,14 @@
         <div *ngIf="dob.errors?.['required']">Age is required</div>
       </div>
       <div class="mt-2">
-        <label><span>Gender</span></label>
-        <label for="male"><span class="signup-text-styles mx-2">Male</span></label>
+        <label>Gender</label>
+        <label for="male">Male</label>
         <input type="radio" name="male" [(ngModel)]="userData.gender" required>
-        <label for="female"><span class="signup-text-styles mx-2">Female</span></label>
+        <label for="female">Female</label>
         <input type="radio" name="male" [(ngModel)]="userData.gender" required>
       </div>
       <div class="mt-2">
-        <label for="email"><span>Password </span></label>
+        <label for="email">Password </label>
         <input class="inputbox-outline form-control" type="password" name="password" [(ngModel)]="userData.password"
           minlength="6" maxlength="15" #password="ngModel" (change)="storePassword($event)" required>
       </div>
@@ -76,7 +76,7 @@
         <div *ngIf="password.errors?.['required']">Password is required.</div>
       </div>
       <div class="mt-2">
-        <label for="email"><span>Confirm password</span> </label>
+        <label for="email">Confirm password </label>
         <input class="inputbox-outline form-control" type="password" name="temporarypass"
           [(ngModel)]="userData.temporarypass" minlength="6" maxlength="15" #cpassword="ngModel"
           (change)="handlePassword($event)" required>

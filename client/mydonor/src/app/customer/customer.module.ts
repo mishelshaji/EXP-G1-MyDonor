@@ -11,7 +11,6 @@ import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
-  
   declarations: [
     CustomerLayoutComponent,
     CustomerNavbarComponent,
@@ -21,12 +20,10 @@ import { SignupComponent } from './signup/signup.component';
     SignupComponent,
     HomepageComponent
   ],
-
   imports: [
     CommonModule,
     CustomerRoutingModule,
     FormsModule
-
   ]
 })
 export class CustomerModule { }
