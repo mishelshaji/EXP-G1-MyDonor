@@ -6,6 +6,7 @@ import { StockviewComponent } from './stockview/stockview.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { AdminFeedbackviewComponent } from './admin-feedbackview/admin-feedbackview.component';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
+import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
     StockviewComponent,
     AdminNavbarComponent,
     AdminFeedbackviewComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    FeedbacksComponent
   ],
   imports: [
     CommonModule,

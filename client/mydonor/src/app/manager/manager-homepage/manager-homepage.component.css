@@ -1,0 +1,15 @@
+.hero {
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background: url(../../../assets/image/Background.png);
+}
+
+.requests-holder {
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 3rem;
+}
