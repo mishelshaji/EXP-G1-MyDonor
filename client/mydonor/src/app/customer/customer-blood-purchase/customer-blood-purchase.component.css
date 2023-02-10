@@ -94,5 +94,20 @@
 }
 
 @media only screen and (max-width:900px) {
-    
+    .purchase-holder h1 {
+        margin: 0;
+    }
+
+    .image-and-stock img {
+        width: 50px;
+        margin-bottom: 1rem;
+    }
+
+    .search-result {
+        padding: 1rem;
+    }
+
+    .btn-purchase {
+        width: fit-content;
+    }
 }
