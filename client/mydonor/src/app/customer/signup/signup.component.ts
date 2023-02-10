@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -12,8 +13,7 @@ export class SignupComponent {
   display = false;
 
   userData = {
-    firstName: "",
-    lastName: "",
+    name: '',
     email: "",
     phone: "",
     district: "",
@@ -33,11 +33,11 @@ export class SignupComponent {
     if (age < 18) {
       this.status = true;
     }
-    else{
+    else {
       this.status = false;
     }
   }
-  
+
   storePassword(event: any) {
     // Storing password of user for validating confirm password.
     this.password = event.target.attributes['ng-reflect-model'].value;
@@ -53,5 +53,4 @@ export class SignupComponent {
       this.display = false;
     }
   }
-
 }
