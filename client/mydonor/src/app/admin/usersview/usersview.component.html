@@ -3,9 +3,9 @@
         <img src="../../../assets/image/avatar-image.png" alt="User Profile Picture">
         <h2>Username</h2>
     </div>
-    <form>
-        <button>VIEW</button>
-        <button>EDIT</button>
-        <button>DELETE</button>
-    </form>
+    <div class="btn-holder">
+        <button class="view-btn"[routerLink]="'/customer/profile'">VIEW</button>
+        <button class="edit-btn"[routerLink]="'/customer/editprofile'">EDIT</button>
+        <button class="delete-btn">DELETE</button>
+    </div>
 </div>
