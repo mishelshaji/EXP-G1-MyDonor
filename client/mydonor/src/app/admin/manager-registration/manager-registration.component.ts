@@ -26,11 +26,9 @@ export class ManagerRegistrationComponent {
 
   handlePassword(event:any) {
     this.confirmpasssword = event.target.attributes['ng-reflect-model'].value;
-    
     if(this.confirmpasssword !== this.password) {
       this.display = true;
     }
-    
     else {
       this.display = false;
     }
