@@ -4,6 +4,18 @@
   background-size: cover;
 }
 
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .flex-item {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 .flex-item-content {
   width: 30px;
   height: 30px;

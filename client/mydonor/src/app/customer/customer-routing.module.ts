@@ -6,6 +6,7 @@ import { SignupComponent } from './signup/signup.component';
 import { CustomerFeedbackComponent } from './customer-feedback/customer-feedback.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { CustomerLayoutComponent } from './customer-layout/customer-layout.component';
+import { CustomerProfileEditComponent } from './customer-profile-edit/customer-profile-edit.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,8 @@ const routes: Routes = [
       { path: 'feedback', component: CustomerFeedbackComponent },
       { path: 'profile', component: CustomerProfileComponent },
       { path: 'signup', component: SignupComponent },
-      { path: 'booking', component: BookingComponent }
+      { path: 'booking', component: BookingComponent },
+      { path: 'editprofile', component: CustomerProfileEditComponent }
     ]
   }
 ];

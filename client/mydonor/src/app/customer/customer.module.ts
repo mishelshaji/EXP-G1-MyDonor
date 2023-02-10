@@ -17,8 +17,8 @@ import { SignupComponent } from './signup/signup.component';
     CustomerFeedbackComponent,
     CustomerProfileComponent,
     CustomerProfileEditComponent,
-    SignupComponent,
-    HomepageComponent
+    HomepageComponent,
+    SignupComponent
   ],
   imports: [
     CommonModule,
