@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ManagerRoutingModule } from './manager-routing.module';
 import { ManagerHomepageComponent } from './manager-homepage/manager-homepage.component';
 import { ManagerLayoutComponent } from './manager-layout/manager-layout.component';

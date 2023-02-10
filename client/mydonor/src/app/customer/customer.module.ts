@@ -9,6 +9,7 @@ import { CustomerProfileComponent } from './customer-profile/customer-profile.co
 import { CustomerProfileEditComponent } from './customer-profile-edit/customer-profile-edit.component';
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
+import { CustomerBloodPurchaseComponent } from './customer-blood-purchase/customer-blood-purchase.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SignupComponent } from './signup/signup.component';
     CustomerProfileComponent,
     CustomerProfileEditComponent,
     HomepageComponent,
-    SignupComponent
+    SignupComponent,
+    CustomerBloodPurchaseComponent
   ],
   imports: [
     CommonModule,
