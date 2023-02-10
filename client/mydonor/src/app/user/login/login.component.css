@@ -16,7 +16,8 @@
 .input {
     border: 1px solid #d30000;
 }
-.main{
+
+.main {
     background: url(../../../assets/image/Background.png);
     background-position: center;
     background-size: cover;
