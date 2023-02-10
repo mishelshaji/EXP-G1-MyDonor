@@ -7,6 +7,7 @@ import { CustomerFeedbackComponent } from './customer-feedback/customer-feedback
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { CustomerLayoutComponent } from './customer-layout/customer-layout.component';
 import { CustomerBloodPurchaseComponent } from './customer-blood-purchase/customer-blood-purchase.component';
+import { CustomerProfileEditComponent } from './customer-profile-edit/customer-profile-edit.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
       { path: 'profile', component: CustomerProfileComponent },
       { path: 'signup', component: SignupComponent },
       { path: 'booking', component: BookingComponent },
-      { path: 'purchase', component: CustomerBloodPurchaseComponent }
+      { path: 'purchase', component: CustomerBloodPurchaseComponent },
+      { path: 'editprofile', component: CustomerProfileEditComponent }
     ]
   }
 ];

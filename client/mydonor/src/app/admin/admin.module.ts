@@ -4,22 +4,30 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { StockviewComponent } from './stockview/stockview.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { ManagerRegistrationComponent } from './manager-registration/manager-registration.component';
+import { FormsModule } from '@angular/forms';
 import { AdminFeedbackviewComponent } from './admin-feedbackview/admin-feedbackview.component';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { FeedbacksComponent } from './feedbacks/feedbacks.component';
+import { AdminUsermanagementComponent } from './admin-usermanagement/admin-usermanagement.component';
+import { UsersviewComponent } from './usersview/usersview.component';
 
 @NgModule({
   declarations: [
     AdminHomeComponent,
     StockviewComponent,
     AdminNavbarComponent,
+    ManagerRegistrationComponent,
     AdminFeedbackviewComponent,
     AdminLayoutComponent,
-    FeedbacksComponent
+    FeedbacksComponent,
+    AdminUsermanagementComponent,
+    UsersviewComponent
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule
   ]
 })
 export class AdminModule { }

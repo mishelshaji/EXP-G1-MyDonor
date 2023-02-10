@@ -1,5 +1,7 @@
 #main {
   background-image: url('../../../assets/images/background.png');
+  background-position: center;
+  background-size: cover;
 }
 
 @media (max-width: 800px) {
@@ -15,10 +17,14 @@
 }
 
 .flex-item-content {
-  width: 20px;
-  height: 20px;
-  background-color: crimson;
+  width: 30px;
+  height: 30px;
+  background-color: #d30000;
   border-radius: 50%;
+}
+
+.active{
+  background-color: #00ff2f;
 }
 
 .flex-item {
@@ -29,7 +35,7 @@
 }
 
 .flex-item p {
-  font-size: xx-small;
+  font-size: 1rem;
 }
 
 .flex-container {
@@ -44,22 +50,52 @@
 }
 
 .box {
-  width: 400px;
-  height: 400px;
+  width: 50%;
+  height: 50%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: rgba(164, 203, 203, 0.128);
+  background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-radius: 15px;
+  border: 2px solid #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  padding: 1rem;
+}
+
+@media only screen and (max-width: 900px) {
+  .box {
+    width: 90%;
+  }
+
+  .flex-container {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .flex-item {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .input {
   flex-basis: 100%;
-  background-color: rgba(150, 196, 196, 0.128);
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
 }
 
 #time-slot {
   border: none;
-  border-radius: 9%;
-  background-color: rgba(183, 198, 210, 0.322);
+  outline: 0;
+  font-size: 1.5rem;
+  padding: 0 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.heading {
+  color: #fff;
+  font-weight: 300;
 }
