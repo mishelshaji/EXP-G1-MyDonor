@@ -1,0 +1,43 @@
+<main id="hero">
+    <h1 class="slogan">People live when people give <span>.</span></h1>
+    <section id="middlesection">
+        <div class="searchholder">
+            <form>
+                <select name="bloodgroup" id="bloodgroup">
+                    <option value="A+">A+</option>
+                    <option value="B+">B+</option>
+                    <option value="O+">O+</option>
+                    <option value="AB+">AB+</option>
+                    <option value="A+">A-</option>
+                    <option value="B+">B-</option>
+                    <option value="O+">O-</option>
+                    <option value="AB+">AB-</option>
+                </select>
+                <select name="district" id="district">
+                    <option value="Kochi">Kochi</option>
+                    <option value="Trivandrum">Trivandrum</option>
+                    <option value="Kollam">Kollam</option>
+                    <option value="Pathanamthitta">Pathanamthitta</option>
+                    <option value="Alappuzha">Alappuzha</option>
+                    <option value="Kottayam">Kottayam</option>
+                    <option value="Idukki">Idukki</option>
+                    <option value="Thrissur">Thrissur</option>
+                    <option value="Palakkad">Palakkad</option>
+                    <option value="Malappuram">Malappuram</option>
+                    <option value="Kozhikodu">Kozhikodu</option>
+                    <option value="Wayanad">Wayanad</option>
+                    <option value="Kannur">Kannur</option>
+                    <option value="Kasaragod">Kasaragod</option>
+                </select>
+                <button type="submit" id="search">Search</button>
+                <button [routerLink]="'/customer/booking'">Donate</button>
+            </form>
+        </div>
+        <div class="dashboard">
+            <div class="userinfo-holder">
+                <img src="../../../assets/image/avatar-image.png" alt="Avatar">
+                <p>Username donated A+ blood</p>
+            </div>
+        </div>
+    </section>
+</main>

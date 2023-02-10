@@ -30,14 +30,23 @@
                     <option value="Kasaragod">Kasaragod</option>
                 </select>
                 <button type="submit" id="search">Search</button>
-                <button>Donate</button>
+                <button [routerLink]="'/customer/signup'">Donate</button>
+                <button [routerLink]="'/customer/booking'">Donate</button>
             </form>
         </div>
         <div class="dashboard">
-            <div class="userinfo-holder">
-                <img src="../../../assets/image/avatar-image.jpg" alt="Avatar">
-                <p>Username donated A+ blood</p>
-            </div>
+            <app-userinfo-holder></app-userinfo-holder>
+            <app-userinfo-holder></app-userinfo-holder>
+            <app-userinfo-holder></app-userinfo-holder>
+            <app-userinfo-holder></app-userinfo-holder>
+            <app-userinfo-holder></app-userinfo-holder>
+            <app-userinfo-holder></app-userinfo-holder>
+            <app-userinfo-holder></app-userinfo-holder>
+            <app-userinfo-holder></app-userinfo-holder>
+            <app-userinfo-holder></app-userinfo-holder>
+            <app-userinfo-holder></app-userinfo-holder>
+            <app-userinfo-holder></app-userinfo-holder>
+            <app-userinfo-holder></app-userinfo-holder>
         </div>
     </section>
     <section id="about">

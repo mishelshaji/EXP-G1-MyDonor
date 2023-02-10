@@ -1,0 +1,38 @@
+.requests {
+    width: 15rem;
+    height: 13rem;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+    border-radius: 10px;
+    transition: 0.5s;
+    border: 1px solid #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.requests:hover {
+    transform: scale(110%);
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.requests img {
+    width: 100px;
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+
+.requests h1 {
+    color: #111;
+    font-weight: 300;
+}
+
+.requests p {
+    color: #d30000;
+    background-color: #fff;
+    padding: 0.2rem 2rem;
+    border-radius: 5px;
+}
