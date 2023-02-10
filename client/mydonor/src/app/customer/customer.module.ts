@@ -16,7 +16,7 @@ import { SignupComponent } from './signup/signup.component';
     CustomerNavbarComponent,
     CustomerFeedbackComponent,
     CustomerProfileComponent,
-    CustomerProfileEditComponent,
+    CustomerProfileEditComponent
     HomepageComponent,
     SignupComponent
   ],
