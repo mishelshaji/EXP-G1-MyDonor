@@ -1,5 +1,5 @@
 #signup {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4);
     border-radius: 20px;
     border: 1px solid #fff;
     -webkit-backdrop-filter: blur(20px);
@@ -9,7 +9,9 @@
 }
 
 .main {
-    background-image: url('../../../assets/images/background.png');
+    width: 100%;
+    height: fit-content;
+    background:url(../../../assets/image/background.png);
     background-position: center;
     background-size: cover;
     display: grid;
@@ -19,14 +21,18 @@
 
 label {
     font-size: 1.2rem;
-    color: #111;
-    font-weight: 600;
+    font-weight: 300;
+    color: #fff;
 }
 
 .heading {
     color: #d30000;
     font-size: 1.8rem;
     font-weight: 600;
+    width: fit-content;
+    background-color: #fff;
+    padding: 0 1rem;
+    border-radius: 5px;
 }
 
 .signup-text-styles {
@@ -36,6 +42,12 @@ label {
 
 .inputbox-outline {
     border: none;
+    outline: 0;
+    background-color: #fff;
+}
+
+.inputbox-outline:focus {
+    background-color: #eee;
 }
 
 .div-spacing {

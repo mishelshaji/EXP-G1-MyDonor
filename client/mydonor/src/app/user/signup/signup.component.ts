@@ -19,7 +19,6 @@ export class SignupComponent {
     district: "",
     bloodgroup: "",
     dob: "",
-    gender: "",
     password: "",
     temporarypass: ""
   };

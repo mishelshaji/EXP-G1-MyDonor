@@ -16,6 +16,7 @@
 
 .slogan span {
     color: #d30000;
+    position: relative;
 }
 
 @media only screen and (max-width:700px) {
@@ -171,11 +172,13 @@
 #about {
     height: fit-content;
     padding: 5rem;
+    background-color: #333;
+    margin-top: 3rem;
 }
 
 #about h1 {
     font-size: 3rem;
-    color: #333;
+    color: #fff;
     width: fit-content;
     position: relative;
 }
@@ -196,7 +199,7 @@
 }
 
 #about p {
-    color: #333;
+    color: #fff;
     font-size: 1rem;
     text-align: justify;
 }
