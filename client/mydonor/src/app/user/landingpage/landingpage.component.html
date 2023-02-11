@@ -1,5 +1,5 @@
 <main id="hero">
-    <h1 class="slogan">People live when people give <span>.</span></h1>
+    <h1 class="slogan">People live when people <span><p class="first">Give .</p><p class="second">Give .</p></span></h1>
     <section id="middlesection">
         <div class="searchholder">
             <form>
@@ -29,9 +29,8 @@
                     <option value="Kannur">Kannur</option>
                     <option value="Kasaragod">Kasaragod</option>
                 </select>
-                <button type="submit" id="search">Search</button>
-                <button [routerLink]="'/customer/signup'">Donate</button>
-                <button [routerLink]="'/customer/booking'">Donate</button>
+                <button type="submit" id="search" [routerLink]="'/customer/purchase'">Search</button>
+                <button [routerLink]="'/signup'">Donate</button>
             </form>
         </div>
         <div class="dashboard">

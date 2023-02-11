@@ -16,11 +16,53 @@
 
 .slogan span {
     color: #d30000;
+    position: relative;
+}
+
+.slogan span {
+    display: flex;
+    flex-direction: column;
+    height: 7rem;
+    overflow: hidden;
+}
+
+.slogan span p {
+    animation: scrollup 6s ease-out infinite;
+}
+
+@keyframes scrollup {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-7rem);
+    }
+
+    100% {
+        transform: translateY(-7rem);
+    }
+}
+
+.first {
+    color: #333;
 }
 
 @media only screen and (max-width:700px) {
     .slogan {
         font-size: 3rem;
+    }
+
+    .slogan span {
+        height: 4rem;
+    }
+
+    .slogan span p {
+        animation: none;
     }
 }
 
@@ -31,6 +73,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-top: -100px;
 }
 
 .searchholder {
@@ -171,11 +214,13 @@
 #about {
     height: fit-content;
     padding: 5rem;
+    background-color: #333;
+    margin-top: 3rem;
 }
 
 #about h1 {
     font-size: 3rem;
-    color: #333;
+    color: #fff;
     width: fit-content;
     position: relative;
 }
@@ -196,7 +241,7 @@
 }
 
 #about p {
-    color: #333;
+    color: #fff;
     font-size: 1rem;
     text-align: justify;
 }
