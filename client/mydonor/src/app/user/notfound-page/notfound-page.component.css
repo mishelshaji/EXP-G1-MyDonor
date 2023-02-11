@@ -9,7 +9,7 @@
     font-weight: 600;
     font-size: 5rem;
     color: #0000;
-    animation: blinker 0.2s linear infinite alternate;
+    animation: blinker 0.05s linear 10 forwards alternate;
 }
 
 @keyframes blinker {

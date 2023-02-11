@@ -19,9 +19,50 @@
     position: relative;
 }
 
+.slogan span {
+    display: flex;
+    flex-direction: column;
+    height: 7rem;
+    overflow: hidden;
+}
+
+.slogan span p {
+    animation: scrollup 6s ease-out infinite;
+}
+
+@keyframes scrollup {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-7rem);
+    }
+
+    100% {
+        transform: translateY(-7rem);
+    }
+}
+
+.first {
+    color: #333;
+}
+
 @media only screen and (max-width:700px) {
     .slogan {
         font-size: 3rem;
+    }
+
+    .slogan span {
+        height: 4rem;
+    }
+
+    .slogan span p {
+        animation: none;
     }
 }
 

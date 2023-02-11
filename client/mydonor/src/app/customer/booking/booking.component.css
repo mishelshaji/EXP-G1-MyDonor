@@ -1,5 +1,5 @@
 #main {
-  background-image: url('../../../assets/images/background.png');
+  background-image: url(../../../assets/image/background.png);
   background-position: center;
   background-size: cover;
 }
