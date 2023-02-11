@@ -9,25 +9,13 @@
     font-weight: 600;
     font-size: 5rem;
     color: #0000;
-    animation: blinker 0.05s linear 10 forwards alternate;
+    -webkit-text-stroke: 1px #61001f;
+    transition: 2s;
 }
 
-@keyframes blinker {
-    0% {
-        -webkit-text-stroke: 1px #ff004f;
-
-    }
-
-    50% {
-        color: #ff004f;
-        text-shadow: 0 0 60px #ff004f;
-        -webkit-text-stroke: 1px #ff417d;
-    }
-
-    100% {
-        color: #fff;
-        text-shadow: 0 0 60px #fff;
-    }
+.not-found h1:hover {
+    color: #ff004f;
+    -webkit-text-stroke: 1px #ff004f;
 }
 
 @media only screen and (max-width:900px) {
