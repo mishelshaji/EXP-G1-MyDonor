@@ -10,6 +10,9 @@ import { CustomerProfileEditComponent } from './customer-profile-edit/customer-p
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from '../user/signup/signup.component';
 import { CustomerBloodPurchaseComponent } from './customer-blood-purchase/customer-blood-purchase.component';
+import { CustomerHistoryComponent } from './customer-history/customer-history.component';
+import { AppoinmentHolderComponent } from './appoinment-holder/appoinment-holder.component';
+import { HistoryHolderComponent } from './history-holder/history-holder.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { CustomerBloodPurchaseComponent } from './customer-blood-purchase/custom
     CustomerProfileEditComponent,
     HomepageComponent,
     SignupComponent,
-    CustomerBloodPurchaseComponent
+    CustomerBloodPurchaseComponent,
+    CustomerHistoryComponent,
+    AppoinmentHolderComponent,
+    HistoryHolderComponent
   ],
   imports: [
     CommonModule,
