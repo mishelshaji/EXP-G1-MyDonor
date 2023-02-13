@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +17,9 @@ namespace MyDonor.Domain.Models
         public int PurchaseId { get; set; }
         public Purchase Purchase { get; set; }
 
-        [ForeignKey(nameof(Appointments))]
+        [ForeignKey(nameof(Appointment))]
         public int AppointmentId { get; set; }
 
-        public Appointments Appointments { get; set; }
+        public Appointment Appointment { get; set; }
     }
 }
