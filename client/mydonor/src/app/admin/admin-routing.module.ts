@@ -11,10 +11,10 @@ const routes: Routes = [
   {
     path: '', component: AdminLayoutComponent, children: [
       { path: 'home', component: AdminHomeComponent },
-      { path: 'managerregistration', component: ManagerRegistrationComponent },
+      { path: 'managers/register', component: ManagerRegistrationComponent },
       { path: 'feedback', component: AdminFeedbackviewComponent },
       { path: 'customer-manage', component: AdminUsermanagementComponent },
-      { path: 'managermanagement', component: ManagerManagementComponent },
+      { path: 'managers', component: ManagerManagementComponent },
     ]
   }
 ];
