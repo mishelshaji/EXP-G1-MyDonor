@@ -18,7 +18,7 @@ import { OtpPageComponent } from './otp-page/otp-page.component';
     LandingNavbarComponent,
     NotfoundPageComponent,
     UserinfoHolderComponent,
-    OtpPageComponent,
+    OtpPageComponent
   ],
   imports: [
     CommonModule,
