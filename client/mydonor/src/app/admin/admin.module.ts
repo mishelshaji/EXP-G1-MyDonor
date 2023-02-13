@@ -11,6 +11,8 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 import { AdminUsermanagementComponent } from './admin-usermanagement/admin-usermanagement.component';
 import { UsersviewComponent } from './usersview/usersview.component';
+import { ManagerManagementComponent } from './manager-management/manager-management.component';
+import { ManagerviewComponent } from './managerview/managerview.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { UsersviewComponent } from './usersview/usersview.component';
     AdminLayoutComponent,
     FeedbacksComponent,
     AdminUsermanagementComponent,
-    UsersviewComponent
+    UsersviewComponent,
+    ManagerManagementComponent,
+    ManagerviewComponent
   ],
   imports: [
     CommonModule,
