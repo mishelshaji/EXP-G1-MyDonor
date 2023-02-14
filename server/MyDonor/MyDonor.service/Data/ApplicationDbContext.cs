@@ -1,6 +1,4 @@
 ﻿
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-
 namespace MyDonor.service.Data
 {
     public class ApplicationDbContext : IdentityDbContext

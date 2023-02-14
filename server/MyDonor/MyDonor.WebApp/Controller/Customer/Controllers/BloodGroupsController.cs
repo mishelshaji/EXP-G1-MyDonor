@@ -15,6 +15,7 @@ namespace MyDonor.WebApp.Controller.Customer.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+
         public async Task<IActionResult> GetAll()
         {
             var result = await _service.GetBloodAsync();
