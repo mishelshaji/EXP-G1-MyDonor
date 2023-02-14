@@ -4,12 +4,14 @@ import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerLayoutComponent } from './customer-layout/customer-layout.component';
 import { CustomerNavbarComponent } from './customer-navbar/customer-navbar.component';
 import { CustomerFeedbackComponent } from './customer-feedback/customer-feedback.component';
+import { CustomerPaymentComponent } from './customer-payment/customer-payment.component';
 
 @NgModule({
   declarations: [
     CustomerLayoutComponent,
     CustomerNavbarComponent,
-    CustomerFeedbackComponent
+    CustomerFeedbackComponent,
+    CustomerPaymentComponent
   ],
   imports: [
     CommonModule,
