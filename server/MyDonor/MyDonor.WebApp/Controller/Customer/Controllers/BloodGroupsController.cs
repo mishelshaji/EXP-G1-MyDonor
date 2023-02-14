@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
 
-namespace MyDonor.WebApp.Areas.Customer.Controllers
+namespace MyDonor.WebApp.Controller.Customer.Controllers
 {
     public class BloodGroupsController : CustomersController
     {
@@ -13,6 +13,8 @@ namespace MyDonor.WebApp.Areas.Customer.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetAll()
         {
             var result = await _service.GetBloodAsync();
