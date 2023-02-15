@@ -7,9 +7,9 @@ import { NotfoundPageComponent } from './notfound-page/notfound-page.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
+  { path: '', component: LandingpageComponent },
   {
-    path: '', component: UserLayoutComponent, children: [
-      { path: '', component: LandingpageComponent },
+    path: 'user', component: UserLayoutComponent, children: [
       { path: 'login', component: LoginComponent },
       { path: 'signup', component: SignupComponent }
     ]
