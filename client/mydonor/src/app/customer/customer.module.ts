@@ -13,6 +13,8 @@ import { CustomerBloodPurchaseComponent } from './customer-blood-purchase/custom
 import { CustomerHistoryComponent } from './customer-history/customer-history.component';
 import { AppoinmentHolderComponent } from './appoinment-holder/appoinment-holder.component';
 import { HistoryHolderComponent } from './history-holder/history-holder.component';
+import { CustomerSidebarComponent } from './customer-sidebar/customer-sidebar.component';
+import { UserinfoHolderComponent } from './userinfo-holder/userinfo-holder.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { HistoryHolderComponent } from './history-holder/history-holder.componen
     CustomerBloodPurchaseComponent,
     CustomerHistoryComponent,
     AppoinmentHolderComponent,
-    HistoryHolderComponent
+    HistoryHolderComponent,
+    CustomerSidebarComponent,
+    UserinfoHolderComponent
   ],
   imports: [
     CommonModule,

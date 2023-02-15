@@ -14,7 +14,6 @@ export class LandingNavbarComponent {
     else {
       this.buttonClicked = true;
     }
-
   }
 }
 

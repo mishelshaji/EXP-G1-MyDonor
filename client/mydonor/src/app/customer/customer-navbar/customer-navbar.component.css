@@ -79,8 +79,25 @@ nav {
     border-radius: 50%;
 }
 
+app-customer-navbar {
+    display: none;
+}
+
+.menu {
+    width: 30px;
+    display: none;
+}
+
 @media only screen and (max-width:900px) {
+    .dp {
+        margin-left: 10rem;
+    }
+
     .middle-menu {
         display: none;
+    }
+
+    .menu {
+        display: block;
     }
 }
