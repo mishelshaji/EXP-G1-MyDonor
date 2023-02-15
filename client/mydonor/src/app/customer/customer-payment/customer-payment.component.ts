@@ -9,14 +9,16 @@ import { Router } from '@angular/router';
 export class CustomerPaymentComponent implements OnInit {
 
   constructor(private router: Router) { }
+
   ngOnInit(): void {
     this.getDate();
   }
+  
   minDate: any = "2023-02";
 
   getDate() {
     var date = new Date();
     var toDate = date.getDate();
-    console.log(toDate)
+    console.log()
   }
 }

@@ -3,33 +3,33 @@
 <div class="container-fluid " id="main">
     <div class="row">
         <div class="col-sm-6 ">
-            <label for="totalunits">Total Units</label>
-            <input type="number" readonly>
+            <label for="totalunits" name="totalunits">Total Units</label>
+            <input type="number" name="totalunits" readonly>
         </div>
         <div class="col-sm-6">
-            <label for="totalprice">Total Price</label>
-            <input type="number" readonly>
+            <label for="totalprice" name="totalprice">Total Price</label>
+            <input type="number" name="totalprice" readonly>
         </div>
     </div>
     <div class="d-grid justify-content-center form-control details col-sm-12 form-group">
         <div class="cardnumber form-control col-sm-12 my-3 w-20 mt-3">
-            <label for="cardnumber">Card Number </label>
-            <input type="tel" minlength="16" maxlength="16">
+            <label for="cardnumber" name="cardnumber">Card Number </label>
+            <input type="tel" name="cardnumber" minlength="16" maxlength="16">
         </div>
         <div class="name form-control col-sm-12 my-3 w-20 mt-3">
-            <label for="cardholder">Card Holder Name </label>
-            <input type="text">
+            <label for="cardholder" name="cardholder">Card Holder Name </label>
+            <input type="text" name="cardholder">
         </div>
         <div class="expirydatex form-control my-3 w-20 mt-3">
-            <label for="expirydate">Expiry </label>
-            <input type="month" min="{{minDate}}">
+            <label for="expirydate" name="expirydate">Expiry </label>
+            <input type="month" name="expirydate" min="{{minDate}}">
         </div>
         <div class="cvv form-control col-sm-12 my-3 w-20 mt-3">
-            <label for="cvv" class="fst-italic ">cvv </label>
-            <input type="tel" minlength="3" maxlength="3">
+            <label for="cvv" class="fst-italic" name="cvv">cvv </label>
+            <input type="tel" name="cvv" minlength="3" maxlength="3">
         </div>
         <div class="container d-grid my-3 w-50 mt-3">
-            <button type="submit" class="btn btn-primary ">PAY</button>
+            <button type="submit" class="btn btn-primary">PAY</button>
         </div>
     </div>
 </div>
