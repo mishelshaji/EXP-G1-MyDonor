@@ -6,13 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class AccountsService {
 
-    url = "https://localhost:7197/api/accounts";
+  url = "https://localhost:7197/api/accounts";
 
-    constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {
 
-      }
+  }
 
-      login(model: LoginDto){
-      return this.http.post(this.url + "/login", model);
-    }
+  login(model: LoginDto) {
+    return this.http.post(this.url + "/login", model);
+  }
 }
