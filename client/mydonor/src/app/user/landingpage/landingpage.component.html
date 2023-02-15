@@ -1,59 +1,11 @@
-<main id="hero">
-    <h1 class="slogan">People live when people give <span>.</span></h1>
-    <section id="middlesection">
-        <div class="searchholder">
-            <form>
-                <select name="bloodgroup" id="bloodgroup">
-                    <option value="A+">A+</option>
-                    <option value="A-">A-</option>
-                    <option value="B+">B+</option>
-                    <option value="B-">B-</option>
-                    <option value="O+">O+</option>
-                    <option value="O-">O-</option>
-                    <option value="AB+">AB+</option>
-                    <option value="AB-">AB-</option>
-                </select>
-                <select name="district" id="district">
-                    <option value="Trivandrum">Trivandrum</option>
-                    <option value="Kollam">Kollam</option>
-                    <option value="Pathanamthitta">Pathanamthitta</option>
-                    <option value="Alappuzha">Alappuzha</option>
-                    <option value="Kottayam">Kottayam</option>
-                    <option value="Idukki">Idukki</option>
-                    <option value="Ernakulam">Ernakulam</option>
-                    <option value="Thrissur">Thrissur</option>
-                    <option value="Palakkad">Palakkad</option>
-                    <option value="Malappuram">Malappuram</option>
-                    <option value="Kozhikode">Kozhikodu</option>
-                    <option value="Wayanad">Wayanad</option>
-                    <option value="Kannur">Kannur</option>
-                    <option value="Kasaragod">Kasaragod</option>
-                </select>
-                <button type="submit" id="search">Search</button>
-                <button>Donate</button>
-            </form>
-        </div>
-        <div class="dashboard">
-            <app-userinfo-holder></app-userinfo-holder>
-            <app-userinfo-holder></app-userinfo-holder>
-            <app-userinfo-holder></app-userinfo-holder>
-            <app-userinfo-holder></app-userinfo-holder>
-            <app-userinfo-holder></app-userinfo-holder>
-            <app-userinfo-holder></app-userinfo-holder>
-            <app-userinfo-holder></app-userinfo-holder>
-            <app-userinfo-holder></app-userinfo-holder>
-            <app-userinfo-holder></app-userinfo-holder>
-            <app-userinfo-holder></app-userinfo-holder>
-            <app-userinfo-holder></app-userinfo-holder>
-            <app-userinfo-holder></app-userinfo-holder>
-        </div>
-    </section>
-    <section id="about">
-        <h1>About</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure deleniti eos accusantium recusandae, velit at,
-            iste eum dignissimos libero voluptatem fugit amet culpa ducimus blanditiis labore! Maxime numquam beatae,
-            quo error asperiores eaque voluptatem eligendi deserunt fugit modi consectetur eos? Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Ex exercitationem molestias sed. Eum mollitia fuga omnis accusamus
-            voluptates ad architecto minus, cupiditate laudantium aliquid, esse ab sed repudiandae voluptatum quasi?</p>
-    </section>
-</main>
+<div class="main">
+    <video class="background" autoplay loop muted>
+        <source src="../../../assets/background/bgvideo.mp4">
+    </video>
+    <img src="../../../assets/image/logolight.png" alt="mydonor-logo">
+    <h1>People live when people <span>Give.</span></h1>
+    <div class="button-holder">
+        <button [routerLink]="'/user/login'">Login</button>
+        <button [routerLink]="'/user/signup'">Signup</button>
+    </div>
+</div>
