@@ -9,7 +9,6 @@ import { CustomerPaymentComponent } from './customer-payment/customer-payment.co
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { CustomerProfileEditComponent } from './customer-profile-edit/customer-profile-edit.component';
 import { FormsModule } from '@angular/forms';
-import { SignupComponent } from '../user/signup/signup.component';
 import { CustomerBloodPurchaseComponent } from './customer-blood-purchase/customer-blood-purchase.component';
 import { CustomerHistoryComponent } from './customer-history/customer-history.component';
 import { AppoinmentHolderComponent } from './appoinment-holder/appoinment-holder.component';
@@ -24,7 +23,6 @@ import { HistoryHolderComponent } from './history-holder/history-holder.componen
     CustomerProfileComponent,
     CustomerProfileEditComponent,
     HomepageComponent,
-    SignupComponent,
     CustomerBloodPurchaseComponent,
     CustomerHistoryComponent,
     AppoinmentHolderComponent,
