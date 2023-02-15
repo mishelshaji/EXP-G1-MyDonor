@@ -4,9 +4,10 @@
     </div>
     <div class="middle-menu">
         <ul>
-            <li><a href="#about">About</a></li>
-            <li><a [routerLink]="'/login'">Login</a></li>
-            <li><a [routerLink]="'/signup'">Signup</a></li>
+            <li><a [routerLink]="'/user/login'">Login</a></li>
+            <li><a [routerLink]="'/user/signup'">Signup</a></li>
         </ul>
     </div>
+    <img src="../../../assets/icons/menu.png" class="menu" alt="menu-icon" (click)="show()">
 </nav>
+<app-landing-sidebar [ngStyle]="{'display':buttonClicked ? 'none' : 'block' }"></app-landing-sidebar>

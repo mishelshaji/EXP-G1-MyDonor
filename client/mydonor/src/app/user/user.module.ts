@@ -9,6 +9,7 @@ import { LandingNavbarComponent } from './landing-navbar/landing-navbar.componen
 import { NotfoundPageComponent } from './notfound-page/notfound-page.component';
 import { UserinfoHolderComponent } from './userinfo-holder/userinfo-holder.component';
 import { OtpPageComponent } from './otp-page/otp-page.component';
+import { LandingSidebarComponent } from './landing-sidebar/landing-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { OtpPageComponent } from './otp-page/otp-page.component';
     LandingNavbarComponent,
     NotfoundPageComponent,
     UserinfoHolderComponent,
-    OtpPageComponent
+    OtpPageComponent,
+    LandingSidebarComponent
   ],
   imports: [
     CommonModule,
