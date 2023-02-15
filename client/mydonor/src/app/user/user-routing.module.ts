@@ -8,9 +8,9 @@ import { SignupComponent } from './signup/signup.component';
 import { OtpPageComponent } from './otp-page/otp-page.component';
 
 const routes: Routes = [
+  { path: '', component: LandingpageComponent },
   {
-    path: '', component: UserLayoutComponent, children: [
-      { path: '', component: LandingpageComponent },
+    path: 'user', component: UserLayoutComponent, children: [
       { path: 'login', component: LoginComponent },
       { path: 'signup', component: SignupComponent },
       { path: 'otp', component: OtpPageComponent }
