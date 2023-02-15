@@ -5,6 +5,7 @@ import { BookingComponent } from './booking/booking.component';
 import { CustomerFeedbackComponent } from './customer-feedback/customer-feedback.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { CustomerLayoutComponent } from './customer-layout/customer-layout.component';
+import { CustomerPaymentComponent } from './customer-payment/customer-payment.component';
 import { CustomerBloodPurchaseComponent } from './customer-blood-purchase/customer-blood-purchase.component';
 import { CustomerProfileEditComponent } from './customer-profile-edit/customer-profile-edit.component';
 import { CustomerHistoryComponent } from './customer-history/customer-history.component';
@@ -12,8 +13,9 @@ import { CustomerHistoryComponent } from './customer-history/customer-history.co
 const routes: Routes = [
   {
     path: '', component: CustomerLayoutComponent, children: [
-      { path: 'home', component: HomepageComponent },
       { path: 'feedback', component: CustomerFeedbackComponent },
+      { path: 'payment', component:CustomerPaymentComponent},
+      { path: 'home', component: HomepageComponent },
       { path: 'profile', component: CustomerProfileComponent },
       { path: 'booking', component: BookingComponent },
       { path: 'purchase', component: CustomerBloodPurchaseComponent },

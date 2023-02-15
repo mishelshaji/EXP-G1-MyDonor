@@ -5,6 +5,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { CustomerLayoutComponent } from './customer-layout/customer-layout.component';
 import { CustomerNavbarComponent } from './customer-navbar/customer-navbar.component';
 import { CustomerFeedbackComponent } from './customer-feedback/customer-feedback.component';
+import { CustomerPaymentComponent } from './customer-payment/customer-payment.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { CustomerProfileEditComponent } from './customer-profile-edit/customer-profile-edit.component';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +20,7 @@ import { HistoryHolderComponent } from './history-holder/history-holder.componen
     CustomerLayoutComponent,
     CustomerNavbarComponent,
     CustomerFeedbackComponent,
+    CustomerPaymentComponent,
     CustomerProfileComponent,
     CustomerProfileEditComponent,
     HomepageComponent,
