@@ -2,7 +2,7 @@
     <h1 id="hero" class="text-center">LOGIN</h1>
     <div class="row login-holder">
         <div class="col-md-6 offset-md-3">
-            <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <form #form="ngForm" (ngSubmit)="onSubmit()">
                 <div class="container w-50">
                     <label for="email">Email</label>
                     <input type="email" name="email" [(ngModel)]="model.email" #email="ngModel"

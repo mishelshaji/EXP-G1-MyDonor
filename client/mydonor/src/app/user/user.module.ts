@@ -10,6 +10,7 @@ import { NotfoundPageComponent } from './notfound-page/notfound-page.component';
 import { OtpPageComponent } from './otp-page/otp-page.component';
 import { LandingSidebarComponent } from './landing-sidebar/landing-sidebar.component';
 import { SignupComponent } from './signup/signup.component';
+import { UserinfoHolderComponent } from '../customer/userinfo-holder/userinfo-holder.component';
 
 @NgModule({
   declarations: [
