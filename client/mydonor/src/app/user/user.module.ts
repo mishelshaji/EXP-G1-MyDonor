@@ -9,6 +9,7 @@ import { LandingNavbarComponent } from './landing-navbar/landing-navbar.componen
 import { NotfoundPageComponent } from './notfound-page/notfound-page.component';
 import { OtpPageComponent } from './otp-page/otp-page.component';
 import { LandingSidebarComponent } from './landing-sidebar/landing-sidebar.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,10 @@ import { LandingSidebarComponent } from './landing-sidebar/landing-sidebar.compo
     LandingNavbarComponent,
     NotfoundPageComponent,
     OtpPageComponent,
-    LandingSidebarComponent
+    LandingSidebarComponent,
+    UserinfoHolderComponent,
+    OtpPageComponent,
+    SignupComponent
   ],
   imports: [
     CommonModule,
