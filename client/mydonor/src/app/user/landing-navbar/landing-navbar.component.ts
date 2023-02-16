@@ -6,14 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./landing-navbar.component.css']
 })
 export class LandingNavbarComponent {
+
   buttonClicked = true;
   show() {
-    if (this.buttonClicked == true) {
-      this.buttonClicked = false;
-    }
-    else {
-      this.buttonClicked = true;
-    }
+    this.buttonClicked = !this.buttonClicked;
   }
 }
 

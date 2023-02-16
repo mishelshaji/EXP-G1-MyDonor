@@ -6,13 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-navbar.component.css']
 })
 export class AdminNavbarComponent {
+
   buttonClicked = true;
   show() {
-    if (this.buttonClicked == true) {
-      this.buttonClicked = false;
-    }
-    else {
-      this.buttonClicked = true;
-    }
+    this.buttonClicked = !this.buttonClicked;
   }
 }
