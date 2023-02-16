@@ -4,8 +4,8 @@
     <form #form="ngForm">
       <div class="mt-2">
         <label for="name">Name</label>
-        <input class="inputbox-outline form-control" #name="ngModel" type="text" name="name"
-          [(ngModel)]="userData.name" maxlength="25" required>
+        <input class="inputbox-outline form-control" #name="ngModel" type="text" name="name" [(ngModel)]="userData.name"
+          maxlength="25" required>
       </div>
       <div class="text-danger" *ngIf="name.invalid && name.touched">
         <div *ngIf="name.errors?.['required']">Name is required</div>
@@ -33,19 +33,35 @@
       </div>
       <div class="mt-2">
         <label for="district">District</label>
-        <input class="inputbox-outline form-control" type="text" name="district" [(ngModel)]="userData.district"
-          minlength="3" maxlength="15" #district="ngModel" required>
-      </div>
-      <div class="text-danger" *ngIf="district.invalid && district.touched">
-        <div *ngIf="district.errors?.['required']">District is required.</div>
+        <select name="district" id="district">
+          <option value="Trivandrum">Trivandrum</option>
+          <option value="Kollam">Kollam</option>
+          <option value="Pathanamthitta">Pathanamthitta</option>
+          <option value="Kottayam">Kottayam</option>
+          <option value="Ernakulam">Ernakulam</option>
+          <option value="Idukki">Idukki</option>
+          <option value="Alappuzha">Alappuzha</option>
+          <option value="Thrisur">Thrisur</option>
+          <option value="Palakkad">Palakkad</option>
+          <option value="Kozhikodu">Kozhikodu</option>
+          <option value="Wayanad">Wayanad</option>
+          <option value="Kannur">Kannur</option>
+          <option value="Malappuram">Malappuram</option>
+          <option value="Kasaragod">Kasaragod</option>
+        </select>
       </div>
       <div class="mt-2">
         <label for="bloodgroup">Blood Group </label>
-        <input class="inputbox-outline form-control" type="text" name="bloodgroup" [(ngModel)]="userData.bloodgroup"
-          #blood="ngModel" required>
-      </div>
-      <div class="text-danger" *ngIf="blood.invalid && blood.touched">
-        <div *ngIf="blood.errors?.['required']">Blood group is required.</div>
+        <select name="bloodgroup" id="bloodgroup">
+          <option value="A+">A+</option>
+          <option value="A-">B+</option>
+          <option value="B+">O+</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">A-</option>
+          <option value="B-">B-</option>
+          <option value="O+">O-</option>
+          <option value="O-">AB-</option>
+        </select>
       </div>
       <div class="mt-2">
         <label for="dob">DOB</label>
@@ -60,10 +76,11 @@
       </div>
       <div class="mt-2">
         <label>Gender</label><br>
-        <label for="male" class="me-3">Male</label>
-        <input type="radio" name="gender" required class="me-2">
-        <label for="female" class="me-3">Female</label>
-        <input type="radio" name="gender" required>
+        <select name="gender" id="gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Others">Others</option>
+        </select>
       </div>
       <div class="mt-2">
         <label for="email">Password </label>

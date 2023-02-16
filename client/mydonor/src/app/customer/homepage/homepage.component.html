@@ -34,7 +34,7 @@
             </form>
         </div>
         <div class="dashboard">
-            <app-userinfo-holder></app-userinfo-holder>
+            <app-userinfo-holder class="mb-3" *ngFor="let user of users" [test]="user"></app-userinfo-holder>
         </div>
     </section>
 </main>

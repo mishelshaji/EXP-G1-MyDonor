@@ -19,9 +19,10 @@
 }
 
 @media only screen and (max-width:700px) {
-    #hero{
+    #hero {
         padding: 5rem 0;
     }
+
     .slogan {
         display: none;
     }
@@ -144,7 +145,11 @@
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: scroll;
+}
+
+.dashboard::-webkit-scrollbar {
+    display: none;
 }
 
 @media only screen and (max-width:900px) {
