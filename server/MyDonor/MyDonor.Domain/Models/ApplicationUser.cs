@@ -5,8 +5,22 @@ namespace MyDonor.Domain.Models
     {
         public string Name { get; set; }
 
-        [ForeignKey(nameof(Customer))]
-        public int CustomerId { get; set; }
-        public Customer? Customer { get; set; }
+        [StringLength(20)]
+        [ForeignKey(nameof(District))]
+        public int DistrictId { get; set; }
+        public District District { get; set; }
+
+        public DateTime? Dob { get; set; }
+
+        public Genders? Gender { get; set; }
+
+        [ForeignKey(nameof(BloodGroup))]
+        public int? BloodId { get; set; }
+        public BloodGroup? BloodGroup { get; set; }
+
+        [StringLength(200)]
+        public string? Address { get; set; }
+
+        public IEnumerable<Purchase> Purchases { get; set; }
     }
 }

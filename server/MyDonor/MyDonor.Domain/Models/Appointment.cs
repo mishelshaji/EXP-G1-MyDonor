@@ -5,15 +5,13 @@ namespace MyDonor.Domain.Models
     {
         public int Id { get; set; }
 
-        [ForeignKey(nameof(BloodBank))]
-        public int CenterId { get; set; }
+        public int? BloodBankId { get; set; }
+        public BloodBank? BloodBank { get; set; }
 
-        public BloodBank BloodBank { get; set; }
 
         [ForeignKey(nameof(ApplicationUser))]
-        public int CustomerId { get; set; }
-
-        public ApplicationUser ApplicationUser { get; set; }
+        public string CustomerId { get; set; }
+        public ApplicationUser Customer { get; set; }
 
         public DateTime Date { get; set; }
 
