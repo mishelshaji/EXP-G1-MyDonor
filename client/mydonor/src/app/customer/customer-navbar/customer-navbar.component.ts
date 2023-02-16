@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class CustomerNavbarComponent {
 
   buttonClicked = true;
+  
   show() {
     this.buttonClicked = !this.buttonClicked;
   }
