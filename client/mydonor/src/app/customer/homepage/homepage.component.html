@@ -34,10 +34,7 @@
             </form>
         </div>
         <div class="dashboard">
-            <div class="userinfo-holder">
-                <img src="../../../assets/image/avatar-image.png" alt="Avatar">
-                <p>Username donated A+ blood</p>
-            </div>
+            <app-userinfo-holder class="mb-3" *ngFor="let user of users" [test]="user"></app-userinfo-holder>
         </div>
     </section>
 </main>

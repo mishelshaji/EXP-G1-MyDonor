@@ -13,6 +13,7 @@ import { AdminUsermanagementComponent } from './admin-usermanagement/admin-userm
 import { UsersviewComponent } from './usersview/usersview.component';
 import { ManagerManagementComponent } from './manager-management/manager-management.component';
 import { ManagerviewComponent } from './managerview/managerview.component';
+import { AdminSidebarComponent } from './admin-sidebar/admin-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ManagerviewComponent } from './managerview/managerview.component';
     AdminUsermanagementComponent,
     UsersviewComponent,
     ManagerManagementComponent,
-    ManagerviewComponent
+    ManagerviewComponent,
+    AdminSidebarComponent
   ],
   imports: [
     CommonModule,

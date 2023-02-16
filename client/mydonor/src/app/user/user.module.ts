@@ -7,8 +7,8 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
 import { UserLayoutComponent } from './user-layout/user-layout.component';
 import { LandingNavbarComponent } from './landing-navbar/landing-navbar.component';
 import { NotfoundPageComponent } from './notfound-page/notfound-page.component';
-import { UserinfoHolderComponent } from './userinfo-holder/userinfo-holder.component';
 import { OtpPageComponent } from './otp-page/otp-page.component';
+import { LandingSidebarComponent } from './landing-sidebar/landing-sidebar.component';
 import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
@@ -18,6 +18,8 @@ import { SignupComponent } from './signup/signup.component';
     LoginComponent,
     LandingNavbarComponent,
     NotfoundPageComponent,
+    OtpPageComponent,
+    LandingSidebarComponent,
     UserinfoHolderComponent,
     OtpPageComponent,
     SignupComponent
