@@ -1,4 +1,3 @@
-
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using MyDonor.Domain.Models;
@@ -20,10 +19,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     options.SignIn.RequireConfirmedPhoneNumber = false;
-    options.SignIn.RequireConfirmedEmail = false; // Must add.
+    options.SignIn.RequireConfirmedEmail = false;
     options.SignIn.RequireConfirmedAccount = false;
 
-    options.User.RequireUniqueEmail = true; // Must add.
+    options.User.RequireUniqueEmail = true; 
     //options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyz0123456789_@";
     options.Password.RequiredLength = 6;
     options.Password.RequireDigit = true;
@@ -67,6 +66,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(options =>
+{
+    options.AllowAnyOrigin();
+    options.AllowAnyHeader();
+    options.AllowAnyMethod();
+});
 
 app.UseHttpsRedirection();
 

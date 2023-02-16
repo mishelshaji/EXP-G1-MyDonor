@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using MyDonor.Service.Dto;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -58,8 +59,29 @@ namespace MyDonor.service.Services
             return response;
         }
 
+        public async Task<ProfileViewDto> GetProfileAsync(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return null;
+            }
+
+            return new ProfileViewDto
+            {
+                Name = user.Name,
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber
+            };
+        }
+
         private string GenerateToken(ApplicationUser user)
         {
+            var role = _userManager.GetRolesAsync(user)
+                .GetAwaiter()
+                .GetResult()
+                .First();
+
             var claims = new Claim[]
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
