@@ -6,18 +6,26 @@ import { Router } from '@angular/router';
   templateUrl: './customer-payment.component.html',
   styleUrls: ['./customer-payment.component.css']
 })
-export class CustomerPaymentComponent implements OnInit {
 
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {
-    this.getDate();
-  }
+export class CustomerPaymentComponent {
+  title = 'rough';
+  model = {
+    cardnumber: '',
+    cardholder: '',
+    expirydate: '',
+    cvv: ''
+  };
 
   minDate: any = "2023-02";
+  
+    getDate() {
+      var date = new Date();
+      var toDate = date.getDate();
+    }
 
-  getDate() {
-    var date = new Date();
-    var toDate = date.getDate();
+  payment() {
+    console.log(this.model);
+
   }
 }
+
