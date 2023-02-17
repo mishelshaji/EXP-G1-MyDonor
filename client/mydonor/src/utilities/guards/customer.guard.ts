@@ -12,17 +12,15 @@ export class CustomerGuard implements CanActivate {
     private tokenHelper: TokenHelper,
     private router: Router) { }
 
-canActivate(
+  canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const hasToken = this.tokenHelper.hasToken();
     console.log(hasToken);
     if (!hasToken) {
-        this.router.navigate(['/login']);
-        return false;
+      this.router.navigate(['/login']);
+      return false;
     }
     return true;
-}
-
-  
+  }
 }

@@ -16,7 +16,7 @@ export class AccountsService {
     return this.http.post(this.url + "/login", model);
   }
 
-  getProfile(){
+  getProfile() {
     return this.http.get(this.url + "/profile");
-}
+  }
 }

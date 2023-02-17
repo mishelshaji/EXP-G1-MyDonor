@@ -10,7 +10,7 @@ export class CustomerProfileComponent implements OnInit {
 
   profile = {
     Name: '',
-    email: '',
+    Email: '',
   }
 
   constructor(private service: AccountsService) { }
@@ -20,7 +20,7 @@ export class CustomerProfileComponent implements OnInit {
     this.service.getProfile().subscribe({
       next: (response: any) => {
         this.profile.Name = response.Name;
-        this.profile.email = response.email;
+        this.profile.Email = response.Email;
       }
     })
   }
