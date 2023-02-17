@@ -10,4 +10,6 @@
             <li><a [routerLink]="'/'">Logout</a></li>
         </ul>
     </div>
+    <img src="../../../assets/icons/menu.png" class="menu" alt="menu-icon" (click)="show()">
 </nav>
+<app-admin-sidebar [ngStyle]="{'display':buttonClicked ? 'none' : 'block' }"></app-admin-sidebar>

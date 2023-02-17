@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CustomerGuard } from 'src/utilities/guards/customer.guard';
 
 const routes: Routes = [
   {
@@ -8,6 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'customer',
+    canActivate: [CustomerGuard],
     loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule)
   },
   {

@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class LandingNavbarComponent {
 
+  buttonClicked = true;
+  
+  show() {
+    this.buttonClicked = !this.buttonClicked;
+  }
 }
+

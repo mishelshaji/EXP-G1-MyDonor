@@ -4,7 +4,12 @@ import { Component } from '@angular/core';
   selector: 'app-admin-navbar',
   templateUrl: './admin-navbar.component.html',
   styleUrls: ['./admin-navbar.component.css']
-})
+})  
 export class AdminNavbarComponent {
 
+  buttonClicked = true;
+  
+  show() {
+    this.buttonClicked = !this.buttonClicked;
+  }
 }

@@ -108,16 +108,19 @@ span {
     }
 
     .image-and-stock {
-        padding: 1rem;
+        padding: 0.1rem;
     }
 
     .image-and-stock img {
-        width: 50px;
+        width: 30px;
         margin-bottom: 1rem;
     }
 
     .button-group button {
         border-radius: 5px;
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
     }
 
     .search-result {
