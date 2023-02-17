@@ -17,14 +17,12 @@ namespace MyDonor.WebApp.Controller.Customer.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CreateCustomerAsync(RegistrationCreateDto dto)
         {
-
             var result = await _service.CreateAsync(dto);
             if (!result.IsValid)
             {
-                return BadRequest(result.Errors);
+                return Ok(result.Result);
             }
-
-            return Ok("sucessfully inserted");
+         return BadRequest(result.Errors);
         }
     }
 }

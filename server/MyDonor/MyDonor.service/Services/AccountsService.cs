@@ -21,9 +21,9 @@ namespace MyDonor.service.Services
             _db = db;
         }
 
-        public async Task<ServiceResponse<bool>> CreateAsync(RegistrationCreateDto dto)
+        public async Task<ServiceResponse<RegisterViewDto>> CreateAsync(RegistrationCreateDto dto)
         {
-            var Response = new ServiceResponse<bool>();
+            var Response = new ServiceResponse<RegisterViewDto>();
             var useremail = await _userManager.FindByEmailAsync(dto.email);
             if (useremail != null)
             {
@@ -34,7 +34,7 @@ namespace MyDonor.service.Services
             {
                 Name = dto.Name,
                 Email = dto.email,
-                PhoneNumber = dto.PhoneNumber,
+                PhoneNumber = dto.Phone,
                 Gender = dto.Gender,
                 Dob = dto.Dob,
                 Address = dto.Address,
@@ -50,7 +50,12 @@ namespace MyDonor.service.Services
                 return Response;
             }
             await _userManager.AddToRoleAsync(user, "Customer");
-            Response.Result = true;
+            Response.Result = new RegisterViewDto
+            {
+                Id=user.UserName,
+                Name= dto.Name,
+                Email= dto.email,
+            };
             return Response;
         }
     }

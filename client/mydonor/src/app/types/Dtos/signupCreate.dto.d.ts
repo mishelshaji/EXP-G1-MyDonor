@@ -3,7 +3,9 @@ declare interface signupCreate {
     email: string,
     phone: string,
     district: number,
-    bloodgroup: number,
+    gender: string,
+    address: string,
+    bloodId: number,
     dob: Date,
     password: string,
     temporarypass: string
