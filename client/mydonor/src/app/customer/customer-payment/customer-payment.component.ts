@@ -17,11 +17,11 @@ export class CustomerPaymentComponent {
   };
 
   minDate: any = "2023-02";
-  
-    getDate() {
-      var date = new Date();
-      var toDate = date.getDate();
-    }
+
+  getDate() {
+    var date = new Date();
+    var toDate = date.getDate();
+  }
 
   payment() {
     console.log(this.model);

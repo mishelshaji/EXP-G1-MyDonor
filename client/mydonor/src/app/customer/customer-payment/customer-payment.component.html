@@ -13,9 +13,9 @@
     </div>
 
     <form #form="ngForm" (ngSubmit)="payment()">
-    <div class="d-grid justify-content-center form-control details col-sm-12 form-group">
+    <div class="d-grid justify-content-center form-control col-sm-12 form-group details">
         <div class="cardnumber form-control col-sm-12 my-3 w-20 mt-3">
-            <label for="cardnumber" name="cardNumber">Card Number </label>
+            <label for="cardnumber" name="cardNumber">Card Number</label>
             <input type="tel" 
             class="form-control" 
             id="cardnumber" 
@@ -28,9 +28,9 @@
             pattern="-?[0-9]+(\.[0-9][0-9]?)?">
         </div>
         <div class="text-danger" *ngIf="cardnumber.invalid && cardnumber.touched">
-            <div *ngIf="cardnumber.errors?.['minlength']">Enter a valid card number</div>
-            <div *ngIf="cardnumber.errors?.['required']">Card number is required</div>
-            <div *ngIf="cardnumber.errors?.['pattern']">Invalid format</div>
+            <div *ngIf="cardnumber.errors?.['minlength']">Enter a valid card number.</div>
+            <div *ngIf="cardnumber.errors?.['required']">Card number is required.</div>
+            <div *ngIf="cardnumber.errors?.['pattern']">Invalid format.</div>
           </div>
 
         <div class="name form-control col-sm-12 my-3 w-20 mt-3">
@@ -46,7 +46,7 @@
         </div>
 
         <div class="expirydatex form-control my-3 w-20 mt-3">
-            <label for="expirydate" name="expiryDate">Expiry </label>
+            <label for="expirydate" name="expiryDate">Expiry</label>
             <input type="month"
             class="form-control" 
             name="expiryDate" 
@@ -60,7 +60,7 @@
         </div>
 
         <div class="cvv form-control col-sm-12 my-3 w-20 mt-3">
-            <label for="cvv" class="fst-italic" name="cvv">cvv </label>
+            <label for="cvv" class="fst-italic" name="cvv">cvv</label>
             <input type="tel" 
             class="form-control"
             name="cvv" 
@@ -72,8 +72,8 @@
             pattern="-?[0-9]+(\.[0-9][0-9]?)?">
         </div>
         <div class="text-danger" *ngIf="cvv.invalid && cvv.touched">
-            <div *ngIf="cvv.errors?.['minlength']">Enter correct cvv.</div>
-            <div *ngIf="cvv.errors?.['required']"> CVV is required.</div>
+            <div *ngIf="cvv.errors?.['minlength']">Enter correct CVV.</div>
+            <div *ngIf="cvv.errors?.['required']">CVV is required.</div>
             <div *ngIf="cvv.errors?.['pattern']">Invalid format.</div>
         </div>
         <div class="container d-grid my-3 w-50 mt-3">
