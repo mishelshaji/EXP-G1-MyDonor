@@ -62,6 +62,13 @@ namespace MyDonor.service.Migrations
                             ConcurrencyStamp = "e2a85572-7b8c-4a95-a862-c557c3b2e870",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
+                        },
+                        new
+                        {
+                            Id = "e2a85572-7b8c-4a95-a862-c557c3b2e871",
+                            ConcurrencyStamp = "e2a85572-7b8c-4a95-a862-c557c3b2e871",
+                            Name = "Manager",
+                            NormalizedName = "MANAGER"
                         });
                 });
 

@@ -19,7 +19,7 @@ namespace MyDonor.WebApp.Controller.Customer.Controllers
         {
 
             var result = await _service.CreateAsync(dto);
-            if (result.IsValid)
+            if (!result.IsValid)
             {
                 return BadRequest(result.Errors);
             }

@@ -13,7 +13,6 @@ namespace MyDonor.Domain.Models
 
         public DateTime Date { get; set; }
 
-
         [ForeignKey(nameof(BloodGroup))]
         public int BloodId { get; set; }
         public BloodGroup BloodGroup { get; set; }

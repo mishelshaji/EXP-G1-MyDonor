@@ -12,13 +12,13 @@ export class SignupComponent {
   confirmpasssword = "";
   display = false;
 
-  userData = {
-    name: '',
+  userData : signupCreate = {
+    name: "",
     email: "",
     phone: "",
-    district: "",
-    bloodgroup: "",
-    dob: "",
+    district: 0,
+    bloodgroup: 0,
+    dob: new Date,
     password: "",
     temporarypass: ""
   };

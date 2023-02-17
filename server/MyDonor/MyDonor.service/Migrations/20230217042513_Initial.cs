@@ -360,7 +360,8 @@ namespace MyDonor.service.Migrations
                 values: new object[,]
                 {
                     { "e2a85572-7b8c-4a95-a862-c557c3b2e869", "e2a85572-7b8c-4a95-a862-c557c3b2e869", "Admin", "ADMIN" },
-                    { "e2a85572-7b8c-4a95-a862-c557c3b2e870", "e2a85572-7b8c-4a95-a862-c557c3b2e870", "Customer", "CUSTOMER" }
+                    { "e2a85572-7b8c-4a95-a862-c557c3b2e870", "e2a85572-7b8c-4a95-a862-c557c3b2e870", "Customer", "CUSTOMER" },
+                    { "e2a85572-7b8c-4a95-a862-c557c3b2e871", "e2a85572-7b8c-4a95-a862-c557c3b2e871", "Manager", "MANAGER" }
                 });
 
             migrationBuilder.InsertData(

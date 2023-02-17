@@ -12,7 +12,7 @@ using MyDonor.service.Data;
 namespace MyDonor.service.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230216102503_Initial")]
+    [Migration("20230217042513_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,6 +64,13 @@ namespace MyDonor.service.Migrations
                             ConcurrencyStamp = "e2a85572-7b8c-4a95-a862-c557c3b2e870",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
+                        },
+                        new
+                        {
+                            Id = "e2a85572-7b8c-4a95-a862-c557c3b2e871",
+                            ConcurrencyStamp = "e2a85572-7b8c-4a95-a862-c557c3b2e871",
+                            Name = "Manager",
+                            NormalizedName = "MANAGER"
                         });
                 });
 

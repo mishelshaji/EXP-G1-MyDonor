@@ -5,8 +5,9 @@ namespace MyDonor.service.Dto
     {
         public string Name { get; set; }
         public string email { get; set; }
-        public string District { get; set; }
+        public int District { get; set; }
 
+        public int BloodId { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime Dob { get; set; }
         public Genders Gender { get; set; }

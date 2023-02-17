@@ -5,6 +5,7 @@ namespace MyDonor.Domain.Models
     {
         public int Id { get; set; }
 
+        [ForeignKey(nameof(ApplicationUser))]
         public string CustomerId { get; set; }
 
         public ApplicationUser ApplicationUser { get; set; }

@@ -38,6 +38,8 @@ namespace MyDonor.service.Services
                 Gender = dto.Gender,
                 Dob = dto.Dob,
                 Address = dto.Address,
+                DistrictId = dto.District,
+                BloodId= dto.BloodId,
                 UserName = Guid.NewGuid().ToString()
             };
 
