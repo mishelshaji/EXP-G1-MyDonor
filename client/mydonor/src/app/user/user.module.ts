@@ -20,7 +20,6 @@ import { SignupComponent } from './signup/signup.component';
     NotfoundPageComponent,
     OtpPageComponent,
     LandingSidebarComponent,
-    UserinfoHolderComponent,
     OtpPageComponent,
     SignupComponent
   ],

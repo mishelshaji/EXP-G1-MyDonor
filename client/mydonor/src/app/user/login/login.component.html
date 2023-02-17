@@ -2,7 +2,7 @@
     <h1 id="hero" class="text-center">LOGIN</h1>
     <div class="row login-holder">
         <div class="col-md-6 offset-md-3">
-            <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <form #form="ngForm" (ngSubmit)="onSubmit()">
                 <div class="container w-50">
                     <label for="email">Email</label>
                     <input type="email" name="email" [(ngModel)]="model.email" #email="ngModel"
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="container d-grid my-3 w-50 mt-3">
-                    <button type="submit" class="btn btn-pri " [disabled]="form.invalid" [routerLink]="'/customer/home'">LOGIN</button>
+                    <button type="submit" class="btn btn-pri " [disabled]="form.invalid">LOGIN</button>
                 </div>
                 <div class="container text-center">
                     <a class="text-pri nav-link">Forgot Password?</a>

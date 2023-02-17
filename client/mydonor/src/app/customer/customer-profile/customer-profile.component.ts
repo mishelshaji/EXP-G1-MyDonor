@@ -1,10 +1,27 @@
-import { Component } from '@angular/core';
+import { AccountsService } from './../../services/accounts.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-customer-profile',
   templateUrl: './customer-profile.component.html',
   styleUrls: ['./customer-profile.component.css']
 })
-export class CustomerProfileComponent {
+export class CustomerProfileComponent implements OnInit {
 
+  profile = {
+    Name: '',
+    Email: '',
+  }
+
+  constructor(private service: AccountsService) { }
+
+  ngOnInit(): void {
+
+    this.service.getProfile().subscribe({
+      next: (response: any) => {
+        this.profile.Name = response.Name;
+        this.profile.Email = response.Email;
+      }
+    })
+  }
 }
