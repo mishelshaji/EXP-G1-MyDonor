@@ -7,5 +7,7 @@
 
         [StringLength(3)]
         public string Name { get; set; }
+
+        public IEnumerable<ApplicationUser> ApplicationUsers { get; set; }
     }
 }

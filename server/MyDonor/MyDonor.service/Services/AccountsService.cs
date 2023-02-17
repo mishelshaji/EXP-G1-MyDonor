@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using MyDonor.Service.Dto;
 using System;
@@ -17,17 +17,57 @@ namespace MyDonor.service.Services
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<ApplicationUser> _signinManager;
         private readonly IConfiguration _configuration;
+        private readonly ApplicationDbContext _db;
 
         public AccountsService(
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager,
             SignInManager<ApplicationUser> signinManager,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            ApplicationDbContext db)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _signinManager = signinManager;
             _configuration = configuration;
+        }
+
+        public async Task<ServiceResponse<RegisterViewDto>> CreateAsync(RegistrationCreateDto dto)
+        {
+            var Response = new ServiceResponse<RegisterViewDto>();
+            var useremail = await _userManager.FindByEmailAsync(dto.email);
+            if (useremail != null)
+            {
+                Response.AddError("", "An account with this email exist.");
+                return Response;
+            }
+            var user = new ApplicationUser
+            {
+                Name = dto.Name,
+                Email = dto.email,
+                PhoneNumber = dto.Phone,
+                Gender = dto.Gender,
+                Dob = dto.Dob,
+                Address = dto.Address,
+                DistrictId = dto.District,
+                BloodId= dto.BloodId,
+                UserName = Guid.NewGuid().ToString()
+            };
+
+            var userstatus = await _userManager.CreateAsync(user, dto.Password);
+            if (!userstatus.Succeeded)
+            {
+                Response.AddError("", "Failed to Add User");
+                return Response;
+            }
+            await _userManager.AddToRoleAsync(user, "Customer");
+            Response.Result = new RegisterViewDto
+            {
+                Id=user.UserName,
+                Name= dto.Name,
+                Email= dto.email,
+            };
+            return Response;
         }
 
         public async Task<ServiceResponse<string>> LoginAsync(LoginDto dto)

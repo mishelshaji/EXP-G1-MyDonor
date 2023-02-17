@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { SignupService } from 'src/app/services/signup.service';
 
 @Component({
   selector: 'app-signup',
@@ -12,17 +14,30 @@ export class SignupComponent {
   confirmpasssword = "";
   display = false;
 
-  userData = {
-    name: '',
-    email: "",
-    phone: "",
-    district: "",
-    bloodgroup: "",
-    dob: "",
-    password: "",
-    temporarypass: ""
+  userData : signupCreate = {
+    name: "mydonor",
+    email: "mydonor@gmail.com",
+    phone: "9846135859",
+    district: 1,
+    gender: "male",
+    address: "dkjbcdijfidsl",
+    bloodId: 1,
+    dob: new Date(),
+    password: "Aravin@123",
+    temporarypass: "Aravin@123"
   };
+  constructor(private signupservice: SignupService, private router: Router){}
 
+  signupCustomer(){
+    this.signupservice.signup(this.userData).subscribe({
+      next:(Data)=>{
+        console.log(Data);
+      },
+      error:(err)=>{
+        console.error(err);
+      }
+    });
+  }
   handleDob(dob: any) {
 
     // function to validate age of customer.

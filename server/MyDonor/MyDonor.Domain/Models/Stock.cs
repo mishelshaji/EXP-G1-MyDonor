@@ -10,9 +10,9 @@ namespace MyDonor.Domain.Models
         public int Quantity { get; set; }
 
         [ForeignKey(nameof(BloodBank))]
-        public int CenterId { get; set; }
+        public int BloodBankId { get; set; }
 
-        public BloodBank BloodBank{ get; set;}
+        public BloodBank BloodBank { get; set; }
 
     }
 }

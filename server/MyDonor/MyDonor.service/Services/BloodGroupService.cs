@@ -8,8 +8,7 @@
         {
             _db = db;
         }
-
-       public async Task<List<BloodViewDto>> GetBloodAsync()
+        public async Task<List<BloodViewDto>> GetBloodAsync()
         {
             return await _db.BloodGroups.Select(c => new BloodViewDto(c)).ToListAsync();
         }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace MyDonor.Domain.Models
 {
     public class Purchase
@@ -13,10 +8,13 @@ namespace MyDonor.Domain.Models
         public int Quantity { get; set; }
 
         [ForeignKey(nameof(ApplicationUser))]
-        public int CustomerId { get; set; }
-
-        public ApplicationUser ApplicationUser { get; set; }
+        public string? CustomerId { get; set; }
+        public ApplicationUser? ApplicationUser { get; set; }
 
         public DateTime Date { get; set; }
+
+        [ForeignKey(nameof(BloodGroup))]
+        public int BloodId { get; set; }
+        public BloodGroup BloodGroup { get; set; }
     }
 }

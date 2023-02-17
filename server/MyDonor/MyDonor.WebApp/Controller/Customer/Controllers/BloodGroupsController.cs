@@ -19,7 +19,7 @@ namespace MyDonor.WebApp.Controller.Customer.Controllers
         public async Task<IActionResult> GetAll()
         {
             var result = await _service.GetBloodAsync();
-            if(result == null)
+            if (result == null)
             {
                 return NotFound();
             }
