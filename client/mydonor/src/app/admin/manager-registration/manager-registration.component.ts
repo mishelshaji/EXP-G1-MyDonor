@@ -8,8 +8,8 @@ import { AccountsService } from 'src/app/services/accounts.service';
   styleUrls: ['./manager-registration.component.css']
 })
 export class ManagerRegistrationComponent {
-  password = ""; 
-  confirmpasssword = ""; 
+  password = "";
+  confirmpasssword = "";
   display = false;
 
   model = {
@@ -18,29 +18,29 @@ export class ManagerRegistrationComponent {
     password: '',
     cpassword: ''
   };
-  constructor(private service: AccountsService, private route: Router ,){}
 
-  onSubmit(form:any) {
+  constructor(private service: AccountsService, private route: Router) { }
+
+  onSubmit(form: any) {
     console.log(this.model);
     this.service.managerRegistration(this.model).subscribe({
-      next:(Data)=>{
+      next: (Data) => {
         console.log(Data);
         this.route.navigate(['/user/login'])
       },
-      error:(err)=>{
+      error: (err) => {
         console.error(err);
-        
       }
     });
   }
 
-  storePassword(e:any) {
-    this.password = e.target.attributes['ng-reflect-model'].value; 
+  storePassword(e: any) {
+    this.password = e.target.attributes['ng-reflect-model'].value;
   }
 
-  handlePassword(event:any) {
+  handlePassword(event: any) {
     this.confirmpasssword = event.target.attributes['ng-reflect-model'].value;
-    if(this.confirmpasssword !== this.password) {
+    if (this.confirmpasssword !== this.password) {
       this.display = true;
     }
     else {

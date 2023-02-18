@@ -21,15 +21,15 @@ export class AccountsService {
     return this.http.get(this.url + "/profile");
   }
 
-  updateUser(id:string, model:any){
-    return this.http.put(this.url + "/" + id ,model)
+  updateUser(id: string, model: any) {
+    return this.http.put(this.url + "/" + id, model)
   }
 
-  managerRegistration(model: any){
+  managerRegistration(model: any) {
     return this.http.post(this.url + "/Manager", model);
   }
 
-  feedbackReg(model:any, id:string){
-    return this.http.post(this.feedback + "/" + id, model );
+  feedbackReg(model: any, id: string) {
+    return this.http.post(this.feedback + "/" + id, model);
   }
 }

@@ -15,6 +15,7 @@ namespace MyDonor.WebApp.Controller.Admin
         {
             _service = service;
         }
+
         [HttpPost("Manager")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

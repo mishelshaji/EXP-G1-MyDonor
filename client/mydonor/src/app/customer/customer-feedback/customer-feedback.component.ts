@@ -8,23 +8,17 @@ import { TokenHelper } from 'src/utilities/helpers/tokenHelper';
   styleUrls: ['./customer-feedback.component.css']
 })
 export class CustomerFeedbackComponent {
-model = {
-content : ""
-};
+  model = {
+    content: ""
+  };
 
-constructor(private service: AccountsService, private token:TokenHelper){}
+  constructor(private service: AccountsService, private token: TokenHelper) { }
 
-onSubmit(){
-  let id = this.token.getDecodedToken().nameidentifier;
-  console.log(id);
-  this.service.feedbackReg(this.model, id).subscribe({
-    next:(Data)=>{
-      console.log(Data);
-    },
-    error:(err)=>{
-      console.error(err);
-      
-    }
-  })
-}
+  onSubmit() {
+    let id = this.token.getDecodedToken().nameidentifier;
+    this.service.feedbackReg(this.model, id).subscribe({
+      next: (Data) => {
+      }
+    })
+  }
 }

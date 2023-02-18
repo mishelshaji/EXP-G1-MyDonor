@@ -17,18 +17,17 @@ export class CustomerProfileComponent implements OnInit {
     address: ''
   }
 
-  constructor(private service: AccountsService, private tokenHelper: TokenHelper, private router:Router) { }
+  constructor(private service: AccountsService, private tokenHelper: TokenHelper, private router: Router) { }
 
-   logout(){
-   this.tokenHelper.removeToken();
-   this.router.navigate(['/']);
-   }
+  logout() {
+    this.tokenHelper.removeToken();
+    this.router.navigate(['/']);
+  }
 
   ngOnInit(): void {
 
     this.service.getProfile().subscribe({
       next: (response: any) => {
-        console.log(response);
         this.profile.name = response.name;
         this.profile.email = response.email;
         this.profile.phone = response.phone;

@@ -8,10 +8,10 @@ import { TokenHelper } from 'src/utilities/helpers/tokenHelper';
   styleUrls: ['./manager-navbar.component.css']
 })
 export class ManagerNavbarComponent {
-  constructor(private tokenhelper:TokenHelper, private router:Router){}
+  constructor(private tokenhelper: TokenHelper, private router: Router) { }
 
-  logout(){
-   this.tokenhelper.removeToken();
-   this.router.navigate(['/']);
+  logout() {
+    this.tokenhelper.removeToken();
+    this.router.navigate(['/']);
   }
 }

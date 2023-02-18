@@ -24,12 +24,10 @@ export class LoginComponent {
             next: (response: any) => {
                 this.tokenHelper.setToken(response.result);
                 let role = this.tokenHelper.getDecodedToken();
-                console.log(role);
-                
                 if (role.userrole === "Manager") {
                     this.router.navigateByUrl('/manager/home');
                 }
-                else if ( role.userrole === "Customer") {
+                else if (role.userrole === "Customer") {
                     this.router.navigateByUrl('/customer/profile');
                 }
             }
