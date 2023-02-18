@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class AccountsService {
 
   url = "https://localhost:7197/api/accounts";
+  feedback = "https://localhost:7197/api/Feedbacks";
 
   constructor(private http: HttpClient) {
 
@@ -18,5 +19,17 @@ export class AccountsService {
 
   getProfile() {
     return this.http.get(this.url + "/profile");
+  }
+
+  updateUser(id:string, model:any){
+    return this.http.put(this.url + "/" + id ,model)
+  }
+
+  managerRegistration(model: any){
+    return this.http.post(this.url + "/Manager", model);
+  }
+
+  feedbackReg(model:any, id:string){
+    return this.http.post(this.feedback + "/" + id, model );
   }
 }

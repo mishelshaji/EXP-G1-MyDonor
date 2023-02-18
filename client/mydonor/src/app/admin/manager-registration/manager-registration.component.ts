@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AccountsService } from 'src/app/services/accounts.service';
 
 @Component({
   selector: 'app-manager-registration',
@@ -12,12 +14,24 @@ export class ManagerRegistrationComponent {
 
   model = {
     email: '',
+    district: '',
     password: '',
     cpassword: ''
   };
+  constructor(private service: AccountsService, private route: Router ,){}
 
   onSubmit(form:any) {
-    console.log(form);
+    console.log(this.model);
+    this.service.managerRegistration(this.model).subscribe({
+      next:(Data)=>{
+        console.log(Data);
+        this.route.navigate(['/user/login'])
+      },
+      error:(err)=>{
+        console.error(err);
+        
+      }
+    });
   }
 
   storePassword(e:any) {

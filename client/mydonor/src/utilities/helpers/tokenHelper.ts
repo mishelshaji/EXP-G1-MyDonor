@@ -26,7 +26,7 @@ export class TokenHelper {
 
         const payload = window.atob(token.split('.')[1]);
         const parsedToken = JSON.parse(payload);
-
+        
         Object.keys(parsedToken).forEach(key => {
             const term = key.split('/').pop() as string;
             result[term] = parsedToken[key];

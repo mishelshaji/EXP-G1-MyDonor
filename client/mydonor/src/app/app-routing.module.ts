@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CustomerGuard } from 'src/utilities/guards/customer.guard';
+import { ManagerGuard } from 'src/utilities/guards/manager.guard';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'manager', 
+    canActivate: [ManagerGuard],
     loadChildren: () => import('./manager/manager.module').then(m => m.ManagerModule)
   },
   {

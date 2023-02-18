@@ -3,7 +3,7 @@ declare interface signupCreate {
     email: string,
     phone: string,
     district: number,
-    gender: string,
+    gender: number,
     address: string,
     bloodId: number,
     dob: Date,

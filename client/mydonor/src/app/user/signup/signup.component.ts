@@ -15,16 +15,16 @@ export class SignupComponent {
   display = false;
 
   userData : signupCreate = {
-    name: "mydonor",
-    email: "mydonor@gmail.com",
-    phone: "9846135859",
+    name: "",
+    email: "",
+    phone: "",
     district: 1,
-    gender: "male",
-    address: "dkjbcdijfidsl",
+    gender: 0,
+    address: "",
     bloodId: 1,
     dob: new Date(),
-    password: "Aravin@123",
-    temporarypass: "Aravin@123"
+    password: "",
+    temporarypass: ""
   };
   constructor(private signupservice: SignupService, private router: Router){}
 
@@ -32,6 +32,7 @@ export class SignupComponent {
     this.signupservice.signup(this.userData).subscribe({
       next:(Data)=>{
         console.log(Data);
+        this.router.navigate(['/user/login']);
       },
       error:(err)=>{
         console.error(err);

@@ -26,6 +26,7 @@ namespace MyDonor.service.Services
             }
             var feedback = new Feedback
             {
+                ApplicationUserId = id,
                 Content = dto.Content,
             };
             _db.Feedbacks.Add(feedback);

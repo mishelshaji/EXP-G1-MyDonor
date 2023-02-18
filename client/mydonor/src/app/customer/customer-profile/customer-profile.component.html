@@ -1,17 +1,17 @@
 <div class="hero">
     <div class="profile-holder">
-        <a [routerLink]="'/customer/profile/edit'"><img src="../../../assets/icons/edit-icon.svg" title="Edit profile"
+        <a [routerLink]="'/customer/profile/edit/:id'"><img src="../../../assets/icons/edit-icon.svg" title="Edit profile"
                 alt="Edit-icon"></a>
         <img src="../../../assets/image/avatar-image.png" alt="customer-profile-picture">
         <div class="userdata-holder">
-            <h1>Aravind K</h1>
-            <p>Username</p>
-            <h2>aravind@gmail.com</h2>
+            <h1>{{profile.name}}</h1>
+            <p>Email</p>
+            <h2>{{profile.email}}</h2>
             <p>Mobile</p>
-            <h2>8281837678</h2>
+            <h2>{{profile.phone}}</h2>
             <p>Address</p>
-            <h3>Lorem ipsum dolor sit amet.</h3>
-            <button>Logout</button>
+            <h3>{{profile.address}}</h3>
+            <button (click)="logout()">Logout</button>
         </div>
     </div>
 </div>

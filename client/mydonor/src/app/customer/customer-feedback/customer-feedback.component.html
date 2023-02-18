@@ -1,7 +1,7 @@
 <div class="hero">
-    <form>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
         <input name="subject" type="text" placeholder="Enter Subject...">
-        <textarea name="feedback" id="feedback" placeholder="Type Description..."></textarea>
-        <button type="submit">Send feedback</button>
+        <textarea name="feedback" id="feedback" placeholder="Type Description..." [(ngModel)]="model.content"></textarea>
+        <button type="submit" [disabled]="form.invalid">Send feedback</button>
     </form>
 </div>

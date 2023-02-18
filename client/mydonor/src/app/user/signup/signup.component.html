@@ -33,8 +33,22 @@
       </div>
       <div class="mt-2">
         <label for="district">District</label>
-        <input class="inputbox-outline form-control" type="text" name="district" [(ngModel)]="userData.district"
-          minlength="3" maxlength="15" #district="ngModel" required>
+        <select name="district" id="district" [(ngModel)]="userData.district" #district="ngModel">
+          <option value=1>Trivandrum</option>
+          <option value=2>Kollam</option>
+          <option value=3>Pathanamthitta</option>
+          <option value=4>Kottayam</option>
+          <option value=5>Ernakulam</option>
+          <option value=6>Idukki</option>
+          <option value=7>Alappuzha</option>
+          <option value=8>Thrissur</option>
+          <option value=9>Palakkad</option>
+          <option value=10>Kozhikod</option>
+          <option value=11>Wayand</option>
+          <option value=12>Kannur</option>
+          <option value=13>Malappuram</option>
+          <option value=14>Kasargod</option>
+        </select>
       </div>
       <div class="text-danger" *ngIf="district.invalid && district.touched">
         <div *ngIf="district.errors?.['required']">District is required.</div>
@@ -49,8 +63,16 @@
       </div>
       <div class="mt-2">
         <label for="bloodgroup">Blood Group </label>
-        <input class="inputbox-outline form-control" type="text" name="bloodid" [(ngModel)]="userData.bloodId"
-          #blood="ngModel" required>
+        <select name="bloodgroup" id="bloodgroup" [(ngModel)]="userData.bloodId" #blood="ngModel">
+          <option value=1>A+</option>
+          <option value=2>A-</option>
+          <option value=3>B+</option>
+          <option value=4>AB+</option>
+          <option value=5>AB-</option>
+          <option value=6>B-</option>
+          <option value=7>O+</option>
+          <option value=8>O-</option>
+        </select>
       </div>
       <div class="text-danger" *ngIf="blood.invalid && blood.touched">
         <div *ngIf="blood.errors?.['required']">Blood group is required.</div>
@@ -69,8 +91,8 @@
       <div class="mt-2">
         <label>Gender</label><br>
         <select name="gender" id="gender">
-          <option value= 0>Male</option>
-          <option value= 1>Female</option>
+          <option value=0>Male</option>
+          <option value=1>Female</option>
         </select>
       </div>
       <div class="mt-2">
@@ -98,7 +120,7 @@
         <div *ngIf="password.errors?.['required']">Password is required.</div>
       </div>
       <div class="mt-4 d-flex justify-content-center ">
-        <button class="center"  (click)="signupCustomer()">Sign up</button>
+        <button class="center" (click)="signupCustomer()">Sign up</button>
       </div>
     </form>
   </div>
