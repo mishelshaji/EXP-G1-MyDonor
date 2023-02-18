@@ -1,60 +1,40 @@
 <section id="main">
-  <div class="flex-container">
-    <div class="box">
-      <div class="flex-item text-danger">
-        <p>9.00 - 10.00 AM</p>
-        <div class="flex-item-content active"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>10.00 - 11.00 AM</p>
-        <div class="flex-item-content active"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>11.00 - 12.00 PM</p>
-        <div class="flex-item-content active"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>12.00 - 1.00 PM</p>
-        <div class="flex-item-content active"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>1.00 - 2.00 PM</p>
-        <div class="flex-item-content active"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>2.00 - 3.00 PM</p>
-        <div class="flex-item-content"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>3.00 - 4.00 PM</p>
-        <div class="flex-item-content"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>4.00 - 5.00 PM</p>
-        <div class="flex-item-content"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>5.00 - 6.00 PM</p>
-        <div class="flex-item-content"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>6.00 - 7.00 PM</p>
-        <div class="flex-item-content"></div>
-      </div>
-      <div class="input">
-        <div class="text-center heading">SELECT YOUR SLOT</div>
-        <select n ame="time" id="time-slot" class="text-danger">
-          <option value="default">Choose Time</option>
-          <option value="time1">09.00 - 10.00</option>
-          <option value="time2">10.00 - 11.00</option>
-          <option value="time3">11.00 - 12.00</option>
-          <option value="time3">12.00 - 01.00</option>
-          <option value="time4">01.00 - 02.00</option>
-          <option value="time4">02.00 - 03.00</option>
-          <option value="time4">03.00 - 04.00</option>
-          <option value="time4">04.00 - 05.00</option>
-        </select>
+  <div class="overlay">
+    <form class="input-holder">
+      <label for="district">Enter District</label>
+      <select name="district" id="district">
+        <option value="1">Trivandrum</option>
+        <option value="2">Kollam</option>
+        <option value="3">Pathanamthitta</option>
+        <option value="4">Kottayam</option>
+        <option value="5">Ernakulam</option>
+        <option value="6">Idukki</option>
+        <option value="7">Alappuzha</option>
+        <option value="8">Thrissur</option>
+        <option value="9">Palakkad</option>
+        <option value="10">Kozhikod</option>
+        <option value="11">Wayand</option>
+        <option value="12">Kannur</option>
+        <option value="13">Malappuram</option>
+        <option value="14">Kasargod</option>
+      </select>
+      <label for="date">Select date</label>
+      <input type="date" name="date">
+      <button type="submit" class="btn btn-danger mt-3">Search Bookings</button>
+    </form>
+
+<!-- ---slot-window--- -->
+
+    <div class="slots">
+      <h4>24-02-2023</h4>
+      <h4 class="text-danger">Trivandrum</h4>
+      <div class="timeschedule">
+        <h2>10:00</h2>
+        <h2>11:00</h2>
+        <h2>12:00</h2>
+        <h2>01:00</h2>
       </div>
     </div>
+    
   </div>
 </section>
