@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MyDonor.Service.Dto;
 using System.Data;
 using System.Security.Claims;
 
@@ -25,9 +26,12 @@ namespace MyDonor.WebApp.Controller.User
         {
             var result = await _service.LoginAsync(dto);
             if (result.IsValid)
-                return Ok(result);
+            {
+                return BadRequest(result.Errors);
+            }
+            return Ok(result);
 
-            return BadRequest(result.Errors);
+            
         }
 
         [Authorize(Roles = "Customer")]
@@ -37,8 +41,27 @@ namespace MyDonor.WebApp.Controller.User
         public async Task<IActionResult> GetProfile()
         {
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var user = await _service.GetProfileAsync(id);
-            return user == null ? NotFound() : Ok(user);
+            if( id !=null )
+            {
+                var user = await _service.GetProfileAsync(id);
+                return Ok(user);
+            }
+
+            return NotFound(); 
+        }
+
+        [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+
+        public async Task<IActionResult> EditUser(string id, ProfileEditDto dto)
+        {
+            var Response = await _service.GetProfileEditAsync(id, dto);
+            if(Response.IsValid)
+            {
+                return BadRequest();
+            }
+            return Ok(Response.Result);
         }
     }
 }

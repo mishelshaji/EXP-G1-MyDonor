@@ -14,26 +14,28 @@ export class SignupComponent {
   confirmpasssword = "";
   display = false;
 
-  userData : signupCreate = {
-    name: "mydonor",
-    email: "mydonor@gmail.com",
-    phone: "9846135859",
+  userData: signupCreate = {
+    name: "",
+    email: "",
+    phone: "",
     district: 1,
-    gender: "male",
-    address: "dkjbcdijfidsl",
+    gender: 1,
+    address: "",
     bloodId: 1,
     dob: new Date(),
-    password: "Aravin@123",
-    temporarypass: "Aravin@123"
+    password: "",
+    temporarypass: ""
   };
-  constructor(private signupservice: SignupService, private router: Router){}
 
-  signupCustomer(){
+  constructor(private signupservice: SignupService, private router: Router) { }
+
+  signupCustomer() {
     this.signupservice.signup(this.userData).subscribe({
-      next:(Data)=>{
+      next: (Data) => {
         console.log(Data);
+        this.router.navigate(['/user/login']);
       },
-      error:(err)=>{
+      error: (err) => {
         console.error(err);
       }
     });

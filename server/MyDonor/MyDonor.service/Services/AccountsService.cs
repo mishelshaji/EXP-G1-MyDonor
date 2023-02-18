@@ -30,6 +30,7 @@ namespace MyDonor.service.Services
             _roleManager = roleManager;
             _signinManager = signinManager;
             _configuration = configuration;
+            _db = db;
         }
 
         public async Task<ServiceResponse<RegisterViewDto>> CreateAsync(RegistrationCreateDto dto)
@@ -111,8 +112,76 @@ namespace MyDonor.service.Services
             {
                 Name = user.Name,
                 Email = user.Email,
-                PhoneNumber = user.PhoneNumber
+                Phone = user.PhoneNumber,
+                Adress = user.Address
             };
+        }
+
+        public async Task<ServiceResponse<ProfileEditViewDto>> GetProfileEditAsync(string id, ProfileEditDto dto)
+        {
+            var Result = new ServiceResponse<ProfileEditViewDto>();
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                Result.AddError("edit", "edit unsuccessfull");
+                return Result;
+            }
+            user.Address = dto.Adress;
+            user.PhoneNumber = dto.Phone;
+            user.Name = dto.Name;
+            
+            var profile = await _userManager.UpdateAsync(user);
+            if( !profile.Succeeded)
+            {
+                Result.AddError("user", "edit unsucessfull");
+            }
+
+            Result.Result = new ProfileEditViewDto
+            {
+                Name = user.Name,
+                Adress= user.Address,
+                Phone = user.PhoneNumber
+            };
+            return Result;
+        }
+
+        public async Task<ServiceResponse<ManagerCreateViewDto>> ManagerCreateAsync(ManagerCreateDto dto)
+        {
+            var Response = new ServiceResponse<ManagerCreateViewDto>();
+            var Manager = await _userManager.FindByEmailAsync(dto.Email);
+            if (Manager != null)
+            {
+                Response.AddError("Manager", "manger exists");
+                return Response;
+            }
+
+            var ManagerUser = new ApplicationUser
+            {
+                UserName = Guid.NewGuid().ToString(),
+                Email = dto.Email,
+                DistrictId = dto.District
+            };
+
+            var res = await _userManager.CreateAsync(ManagerUser, dto.Password);
+            if( !res.Succeeded)
+            {
+                Response.AddError("", "manager does not created");
+            }
+
+            await _userManager.AddToRoleAsync(ManagerUser, "Manager");
+
+            var bloodBank = new BloodBank
+            {
+                ManagerId = ManagerUser.Id
+            };
+            await _db.BloodBanks.AddAsync(bloodBank);
+            await _db.SaveChangesAsync();
+
+            Response.Result = new()
+            {
+                Email = ManagerUser.Email
+            };
+            return Response;
         }
 
         private string GenerateToken(ApplicationUser user)
@@ -125,7 +194,9 @@ namespace MyDonor.service.Services
             var claims = new Claim[]
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
-                new Claim(ClaimTypes.Name, $"{user.Name}")
+                new Claim(ClaimTypes.Name, $"{user.Name}"),
+                new Claim(ClaimTypes.Role, role),
+                new Claim("userrole", role)
             };
 
             string issuer = _configuration["Jwt:Issuer"];

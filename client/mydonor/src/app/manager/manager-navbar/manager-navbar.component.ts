@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { TokenHelper } from 'src/utilities/helpers/tokenHelper';
 
 @Component({
   selector: 'app-manager-navbar',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./manager-navbar.component.css']
 })
 export class ManagerNavbarComponent {
+  constructor(private tokenhelper: TokenHelper, private router: Router) { }
 
+  logout() {
+    this.tokenhelper.removeToken();
+    this.router.navigate(['/']);
+  }
 }

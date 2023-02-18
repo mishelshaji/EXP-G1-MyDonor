@@ -1,5 +1,7 @@
 import { AccountsService } from './../../services/accounts.service';
 import { Component, OnInit } from '@angular/core';
+import { TokenHelper } from 'src/utilities/helpers/tokenHelper';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-profile',
@@ -9,18 +11,27 @@ import { Component, OnInit } from '@angular/core';
 export class CustomerProfileComponent implements OnInit {
 
   profile = {
-    Name: '',
-    Email: '',
+    name: '',
+    email: '',
+    phone: '',
+    address: ''
   }
 
-  constructor(private service: AccountsService) { }
+  constructor(private service: AccountsService, private tokenHelper: TokenHelper, private router: Router) { }
+
+  logout() {
+    this.tokenHelper.removeToken();
+    this.router.navigate(['/']);
+  }
 
   ngOnInit(): void {
 
     this.service.getProfile().subscribe({
       next: (response: any) => {
-        this.profile.Name = response.Name;
-        this.profile.Email = response.Email;
+        this.profile.name = response.name;
+        this.profile.email = response.email;
+        this.profile.phone = response.phone;
+        this.profile.address = response.adress;
       }
     })
   }
