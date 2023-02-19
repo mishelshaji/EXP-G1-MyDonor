@@ -18,7 +18,6 @@ namespace MyDonor.WebApp.Controller.Customer.Controllers
         [HttpPost("Customer/BookingDetail")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-
         public async Task<IActionResult> BookingDetailsAsync(BookingCreateDto dto)
         {
             var result = await _service.GetBookingsAsync(dto);
@@ -33,7 +32,6 @@ namespace MyDonor.WebApp.Controller.Customer.Controllers
         [HttpPost("Customer/Booking")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-
         public async Task<IActionResult> BookingAsync(BookingCreateDto dto)
         {
             var result = await _service.BookingsAsync(dto);

@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AccountsService } from 'src/app/services/accounts.service';
 import { BookingService } from 'src/app/services/booking.service';
 import { TokenHelper } from 'src/utilities/helpers/tokenHelper';
 @Component({
@@ -23,12 +21,9 @@ export class BookingComponent {
 
   checkBooking() {
     this.model.userid = this.token.getDecodedToken().nameidentifier;
-    console.log(this.model);
     this.service.getBookings(this.model).subscribe({
       next: (Data) => {
-        console.log(Data);
         this.data = Data;
-        console.log(this.data);
       },
       error: (err) => {
         console.error(err);
@@ -40,7 +35,6 @@ export class BookingComponent {
     this.model.userid = this.token.getDecodedToken().nameidentifier;
     this.service.saveBookings(this.model).subscribe({
       next: (Data) => {
-        console.log(Data);
       },
       error: (err) => {
         console.error(err);
