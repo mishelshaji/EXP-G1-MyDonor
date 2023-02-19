@@ -1,59 +1,49 @@
 <section id="main">
-  <div class="flex-container">
-    <div class="box">
-      <div class="flex-item text-danger">
-        <p>9.00 - 10.00 AM</p>
-        <div class="flex-item-content active"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>10.00 - 11.00 AM</p>
-        <div class="flex-item-content active"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>11.00 - 12.00 PM</p>
-        <div class="flex-item-content active"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>12.00 - 1.00 PM</p>
-        <div class="flex-item-content active"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>1.00 - 2.00 PM</p>
-        <div class="flex-item-content active"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>2.00 - 3.00 PM</p>
-        <div class="flex-item-content"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>3.00 - 4.00 PM</p>
-        <div class="flex-item-content"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>4.00 - 5.00 PM</p>
-        <div class="flex-item-content"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>5.00 - 6.00 PM</p>
-        <div class="flex-item-content"></div>
-      </div>
-      <div class="flex-item text-danger">
-        <p>6.00 - 7.00 PM</p>
-        <div class="flex-item-content"></div>
-      </div>
-      <div class="input">
-        <div class="text-center heading">SELECT YOUR SLOT</div>
-        <select n ame="time" id="time-slot" class="text-danger">
-          <option value="default">Choose Time</option>
-          <option value="time1">09.00 - 10.00</option>
-          <option value="time2">10.00 - 11.00</option>
-          <option value="time3">11.00 - 12.00</option>
-          <option value="time3">12.00 - 01.00</option>
-          <option value="time4">01.00 - 02.00</option>
-          <option value="time4">02.00 - 03.00</option>
-          <option value="time4">03.00 - 04.00</option>
-          <option value="time4">04.00 - 05.00</option>
-        </select>
+  <div class="overlay">
+    <form class="input-holder">
+      <label for="district">Enter District</label>
+      <select name="district" id="district" [(ngModel)]="model.districtid">
+        <option value="1">Trivandrum</option>
+        <option value="2">Kollam</option>
+        <option value="3">Pathanamthitta</option>
+        <option value="4">Kottayam</option>
+        <option value="5">Ernakulam</option>
+        <option value="6">Idukki</option>
+        <option value="7">Alappuzha</option>
+        <option value="8">Thrissur</option>
+        <option value="9">Palakkad</option>
+        <option value="10">Kozhikod</option>
+        <option value="11">Wayand</option>
+        <option value="12">Kannur</option>
+        <option value="13">Malappuram</option>
+        <option value="14">Kasargod</option>
+      </select>
+      <label for="date">Select date</label>
+      <input type="date" name="date" [(ngModel)]="model.date" #date="ngModel" (change)="checkBooking()">
+      <label for="time">Select Time</label>
+      <select name="time" id="time" [(ngModel)]="model.time">
+        <option value="10:00-10:30">10:00 - 10:30 AM</option>
+        <option value="11:00-11:30">11:00 - 11:30 AM</option>
+        <option value="12:00-12:30">12:00 - 12:30 PM</option>
+        <option value="12:00-01:00">12:00 - 01:00 PM</option>
+        <option value="01:00-01:30">01:00 - 01:30 PM</option>
+        <option value="01:30-02:00">01:30 - 02:00 PM</option>
+        <option value="02:00-02:30">02:00 - 02:30 PM</option>
+        <option value="02:30-03:00">02:30 - 03:00 PM</option>
+        <option value="03:00-03:30">03:00 - 03:30 PM</option>
+        <option value="03:30-04:00">03:30 - 04:00 PM</option>
+      </select>
+      <button type="submit" class="btn btn-danger mt-3" (click)="saveData()">Search Bookings</button>
+    </form>
+    <!-- ---slot-window--- -->
+    <div class="slots">
+      <h4>{{model.date}}</h4>
+      <h4 class="text-danger">
+        Trivandrum</h4>
+      <div class="timeschedule">
+        <ul *ngFor="let item of data.result">
+          <p>{{item.time}}</p>
+        </ul>
       </div>
     </div>
   </div>
