@@ -4,13 +4,15 @@ namespace MyDonor.service.Dto
     public class BookingViewDto
     {
         public int Id { get; set; }
-        public int Quantity { get; set; }
 
-        public int CustomerId { get; set; }
+        public string Date { get; set; }
 
-        public DateTime Date { get; set; }
+        public string time { get; set; }
 
-        public int BloodId { get; set; }
-
+        public BookingViewDto(string? date, string? Time)
+        {
+            Date = date;
+            time = Time;
+        }
     }
 }

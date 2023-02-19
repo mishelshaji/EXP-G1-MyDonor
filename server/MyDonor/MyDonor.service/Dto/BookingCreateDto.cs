@@ -5,11 +5,13 @@ namespace MyDonor.service.Dto
 {
     public class BookingCreateDto
     {
-        public int Quantity { get; set; }
+        public int DistrictId { get; set; }
 
-        public int CustomerId { get; set; }
+        public string Date { get; set; }
 
-        public int BloodId { get; set; }
+        public string? time { get; set; }
+
+        public string userId { get; set; }
 
     }
 }

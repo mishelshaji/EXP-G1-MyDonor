@@ -14,7 +14,7 @@ const routes: Routes = [
     loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule)
   },
   {
-    path: 'manager', 
+    path: 'manager',
     canActivate: [ManagerGuard],
     loadChildren: () => import('./manager/manager.module').then(m => m.ManagerModule)
   },

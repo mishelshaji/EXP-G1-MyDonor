@@ -5,10 +5,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SignupService {
- url ="https://localhost:7197/api/Accounts/customer/register";
+  url = "https://localhost:7197/api/Accounts/customer/register";
   constructor(private http: HttpClient) { }
 
-  signup(model: signupCreate){
+  signup(model: signupCreate) {
     return this.http.post<signupView>(this.url, model);
   }
 }

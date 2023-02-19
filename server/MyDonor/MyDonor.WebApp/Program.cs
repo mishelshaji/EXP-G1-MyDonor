@@ -2,6 +2,8 @@ using MyDonor.Domain.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using MyDonor.WebApp.Controller.Customer.Controllers;
+using MyDonor.Service.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +30,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     options.Password.RequireLowercase = true;
     options.Password.RequireUppercase = true;
 
-    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
     options.Lockout.MaxFailedAccessAttempts = 3;
 })
     .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -56,7 +58,7 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddScoped<BloodGroupService>();
 builder.Services.AddScoped<AccountsService>();
-
+builder.Services.AddScoped<BookingAndBuyingService>();
 builder.Services.AddScoped<FeedbackService>();
 var app = builder.Build();
 

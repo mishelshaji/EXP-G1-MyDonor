@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { CustomerRoutingModule } from './customer-routing.module';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CustomerLayoutComponent } from './customer-layout/customer-layout.component';
@@ -15,6 +15,7 @@ import { AppoinmentHolderComponent } from './appoinment-holder/appoinment-holder
 import { HistoryHolderComponent } from './history-holder/history-holder.component';
 import { CustomerSidebarComponent } from './customer-sidebar/customer-sidebar.component';
 import { UserinfoHolderComponent } from './userinfo-holder/userinfo-holder.component';
+import { BookingComponent } from './booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UserinfoHolderComponent } from './userinfo-holder/userinfo-holder.compo
     AppoinmentHolderComponent,
     HistoryHolderComponent,
     CustomerSidebarComponent,
-    UserinfoHolderComponent
+    UserinfoHolderComponent,
+    BookingComponent
   ],
   imports: [
     CommonModule,

@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using MyDonor.Service.Dto;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -51,7 +52,7 @@ namespace MyDonor.service.Services
                 Dob = dto.Dob,
                 Address = dto.Address,
                 DistrictId = dto.District,
-                BloodId= dto.BloodId,
+                BloodId = dto.BloodId,
                 UserName = Guid.NewGuid().ToString()
             };
 
@@ -64,9 +65,9 @@ namespace MyDonor.service.Services
             await _userManager.AddToRoleAsync(user, "Customer");
             Response.Result = new RegisterViewDto
             {
-                Id=user.UserName,
-                Name= dto.Name,
-                Email= dto.email,
+                Id = user.UserName,
+                Name = dto.Name,
+                Email = dto.email,
             };
             return Response;
         }
@@ -129,9 +130,9 @@ namespace MyDonor.service.Services
             user.Address = dto.Adress;
             user.PhoneNumber = dto.Phone;
             user.Name = dto.Name;
-            
+
             var profile = await _userManager.UpdateAsync(user);
-            if( !profile.Succeeded)
+            if (!profile.Succeeded)
             {
                 Result.AddError("user", "edit unsucessfull");
             }
@@ -139,7 +140,7 @@ namespace MyDonor.service.Services
             Result.Result = new ProfileEditViewDto
             {
                 Name = user.Name,
-                Adress= user.Address,
+                Adress = user.Address,
                 Phone = user.PhoneNumber
             };
             return Result;
@@ -159,11 +160,12 @@ namespace MyDonor.service.Services
             {
                 UserName = Guid.NewGuid().ToString(),
                 Email = dto.Email,
-                DistrictId = dto.District
+                DistrictId = dto.District,
+                Roles = "Manager"
             };
 
             var res = await _userManager.CreateAsync(ManagerUser, dto.Password);
-            if( !res.Succeeded)
+            if (!res.Succeeded)
             {
                 Response.AddError("", "manager does not created");
             }

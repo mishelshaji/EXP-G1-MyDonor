@@ -13,9 +13,9 @@ namespace MyDonor.Domain.Models
         public string CustomerId { get; set; }
         public ApplicationUser Customer { get; set; }
 
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
-        public DateTime Time { get; set; }
+        public string Time { get; set; }
     }
 
 }

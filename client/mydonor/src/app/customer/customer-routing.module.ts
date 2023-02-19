@@ -14,7 +14,7 @@ const routes: Routes = [
   {
     path: '', component: CustomerLayoutComponent, children: [
       { path: 'feedback', component: CustomerFeedbackComponent },
-      { path: 'payment', component:CustomerPaymentComponent},
+      { path: 'payment', component: CustomerPaymentComponent },
       { path: 'home', component: HomepageComponent },
       { path: 'profile', component: CustomerProfileComponent },
       { path: 'booking', component: BookingComponent },
