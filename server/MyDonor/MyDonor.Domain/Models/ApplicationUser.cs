@@ -21,6 +21,8 @@ namespace MyDonor.Domain.Models
         [StringLength(200)]
         public string? Address { get; set; }
 
+        public string? Roles { get; set; }
+
         public IEnumerable<Purchase> Purchases { get; set; }
     }
 }

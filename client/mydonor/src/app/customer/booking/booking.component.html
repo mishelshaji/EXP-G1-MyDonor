@@ -2,7 +2,7 @@
   <div class="overlay">
     <form class="input-holder">
       <label for="district">Enter District</label>
-      <select name="district" id="district">
+      <select name="district" id="district" [(ngModel)]="model.districtid">
         <option value="1">Trivandrum</option>
         <option value="2">Kollam</option>
         <option value="3">Pathanamthitta</option>
@@ -19,20 +19,31 @@
         <option value="14">Kasargod</option>
       </select>
       <label for="date">Select date</label>
-      <input type="date" name="date">
-      <button type="submit" class="btn btn-danger mt-3">Search Bookings</button>
+      <input type="date" name="date" [(ngModel)]="model.date" #date="ngModel" (change)="checkBooking()">
+      <label for="time">Select Time</label>
+      <select name="time" id="time" [(ngModel)]="model.time">
+        <option value="10:00-10:30">10:00 - 10:30 AM</option>
+        <option value="11:00-11:30">11:00 - 11:30 AM</option>
+        <option value="12:00-12:30">12:00 - 12:30 PM</option>
+        <option value="12:00-01:00">12:00 - 01:00 PM</option>
+        <option value="01:00-01:30">01:00 - 01:30 PM</option>
+        <option value="01:30-02:00">01:30 - 02:00 PM</option>
+        <option value="02:00-02:30">02:00 - 02:30 PM</option>
+        <option value="02:30-03:00">02:30 - 03:00 PM</option>
+        <option value="03:00-03:30">03:00 - 03:30 PM</option>
+        <option value="03:30-04:00">03:30 - 04:00 PM</option>
+      </select>
+      <button type="submit" class="btn btn-danger mt-3" (click)="saveData()">Search Bookings</button>
     </form>
-
-<!-- ---slot-window--- -->
-
+    <!-- ---slot-window--- -->
     <div class="slots">
-      <h4>24-02-2023</h4>
-      <h4 class="text-danger">Trivandrum</h4>
+      <h4>{{model.date}}</h4>
+      <h4 class="text-danger">
+        Trivandrum</h4>
       <div class="timeschedule">
-        <h2>10:00</h2>
-        <h2>11:00</h2>
-        <h2>12:00</h2>
-        <h2>01:00</h2>
+        <ul *ngFor="let item of data.result">
+          <p>{{item.time}}</p>
+        </ul>
       </div>
     </div>
     
