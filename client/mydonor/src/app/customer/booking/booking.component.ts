@@ -15,8 +15,7 @@ export class BookingComponent {
     userid: ''
   };
 
-  data: any;
-
+  data: any| null;
   constructor(private token: TokenHelper, private service: BookingService) { }
 
   checkBooking() {
@@ -24,6 +23,8 @@ export class BookingComponent {
     this.service.getBookings(this.model).subscribe({
       next: (Data) => {
         this.data = Data;
+        console.log(Data);
+        
       },
       error: (err) => {
         console.error(err);
@@ -35,6 +36,7 @@ export class BookingComponent {
     this.model.userid = this.token.getDecodedToken().nameidentifier;
     this.service.saveBookings(this.model).subscribe({
       next: (Data) => {
+        console.log(Data); 
       },
       error: (err) => {
         console.error(err);

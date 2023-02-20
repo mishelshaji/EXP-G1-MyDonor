@@ -1,4 +1,16 @@
 <div class="requests">
-    <button>Confirm</button>
-    <button>Reject</button>
+  <button (click)="viewStock()">View Units</button>
+  <h5 *ngFor="let item of data.result" class="stock me-3">
+    <p>{{item.quantity}} Units</p>
+    <select name="blood" id="blood" [value]="item.bloodGroup">
+      <option value="1">A+</option>
+      <option value="2">A-</option>
+      <option value="3">B+</option>
+      <option value="4">AB+</option>
+      <option value="5">AB-</option>
+      <option value="6">B-</option>
+      <option value="7">O+</option>
+      <option value="8">O-</option>
+    </select>
+  </h5>
 </div>

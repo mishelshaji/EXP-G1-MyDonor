@@ -59,6 +59,12 @@ namespace MyDonor.Service.Services
         public async Task<ServiceResponse<string>> BookingsAsync(BookingCreateDto dto)
         {
             var Response = new ServiceResponse<string>();
+            var userbooking = await _db.Appointments.FirstOrDefaultAsync(m => m.CustomerId == dto.userId);
+            if (userbooking != null)
+            {
+                Response.AddError("appointment", "user cant book");
+                return Response;
+            }
             var managers = await _db.ApplicationUsers.FirstOrDefaultAsync(m => m.Roles == "Manager" && m.DistrictId == dto.DistrictId);
             if (managers == null)
             {
@@ -87,17 +93,118 @@ namespace MyDonor.Service.Services
             };
             await _db.Appointments.AddAsync(appointment);
             var userblood = await _db.ApplicationUsers.FirstOrDefaultAsync(m => m.Id == dto.userId);
-            var stock = new Stock
+            if (userblood != null)
             {
-                BloodGroupId = userblood.BloodId ??= 0,
-                Quantity = 1,
-                BloodBankId = bloodbank.Id
-            };
-            await _db.Stocks.AddAsync(stock);
+                var stocks = await _db.Stocks.FirstOrDefaultAsync(m => m.BloodBankId == bloodbank.Id && m.BloodGroupId == userblood.BloodId);
+                if (stocks == null)
+                {
+                    var stock = new Stock
+                    {
+                        BloodGroupId = userblood.BloodId ??= 0,
+                        Quantity = 1,
+                        BloodBankId = bloodbank.Id
+                    };
+                    await _db.Stocks.AddAsync(stock);
+                }
+                if (stocks != null)
+                {
+                    stocks.Quantity = stocks.Quantity + 1;
+                }
+            }
             await _db.SaveChangesAsync();
 
             Response.Result = "booking and stock updated";
             return Response;
+        }
+
+        public async Task<ServiceResponse<BuyViewDto>> BuyingBloodAsync(BuyCreateDto dto)
+        {
+            var Response = new ServiceResponse<BuyViewDto>();
+            var user = await _db.ApplicationUsers.FirstOrDefaultAsync(m => m.Id == dto.UserId);
+            if (user == null)
+            {
+                Response.AddError("user", "user does not exist");
+                return Response;
+            }
+            var managers = await _db.ApplicationUsers.FirstOrDefaultAsync(m => m.Roles == "Manager" && m.DistrictId == dto.DistrictId);
+            if (managers == null)
+            {
+                Response.AddError("Manager", "manager does not exist");
+                return Response;
+            }
+
+            var bloodbank = _db.BloodBanks.Where(m => m.ManagerId == managers.Id).FirstOrDefault();
+            if (bloodbank == null)
+            {
+                Response.AddError("BloodBank", "BloodBank does not exist");
+                return Response;
+            }
+
+            var stock = await _db.Stocks.FirstOrDefaultAsync(m => m.BloodGroupId == dto.BloodId && m.BloodBankId == bloodbank.Id);
+            if (stock == null)
+            {
+                Response.AddError("Stock", "stock does not exist");
+                return Response;
+            }
+            if (stock.Quantity < dto.Quantity)
+            {
+                Response.AddError("quantity", "quantity not present");
+                return Response;
+            }
+
+            stock.Quantity -= dto.Quantity;
+            var purchase = new Purchase
+            {
+                Quantity = dto.Quantity,
+                CustomerId = dto.UserId,
+                BloodId = dto.BloodId,
+                DistrictId = dto.DistrictId,
+                Date = DateTime.Today
+            };
+            await _db.AddAsync(purchase);
+            _db.SaveChanges();
+            if (purchase != null)
+            {
+                var payment = new Payment
+                {
+                    PurchaseId = purchase.Id,
+                    Amount = dto.Amount,
+                    CustomerId = dto.UserId,
+                };
+                await _db.AddAsync(payment);
+            }
+            else
+            {
+                Response.AddError("purchase", "purchase failed");
+                return Response;
+            }
+            _db.SaveChanges();
+            Response.Result = new()
+            {
+                status = "booking sucess"
+            };
+            return Response;
+        }
+
+        public async Task<int> StockAsync(int bloodid, int districtid)
+        {
+            var managers = await _db.ApplicationUsers.FirstOrDefaultAsync(m => m.Roles == "Manager" && m.DistrictId == districtid);
+            if (managers == null)
+            {
+                return 0;
+            }
+
+            var bloodbank = _db.BloodBanks.Where(m => m.ManagerId == managers.Id).FirstOrDefault();
+            if (bloodbank == null)
+            {
+                return 0;
+            }
+            var val = await _db.Stocks.FirstOrDefaultAsync(m => m.BloodGroupId == bloodid && m.BloodBankId == bloodbank.Id);
+            if (val != null)
+            {
+                return val.Quantity;
+            }
+            return 0;
         }
     }
 }

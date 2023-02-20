@@ -3,33 +3,35 @@
     <section id="middlesection">
         <div class="searchholder">
             <form>
-                <select name="bloodgroup" id="bloodgroup">
-                    <option value="A+">A+</option>
-                    <option value="B+">B+</option>
-                    <option value="O+">O+</option>
-                    <option value="AB+">AB+</option>
-                    <option value="A+">A-</option>
-                    <option value="B+">B-</option>
-                    <option value="O+">O-</option>
-                    <option value="AB+">AB-</option>
-                </select>
-                <select name="district" id="district">
-                    <option value="Kochi">Kochi</option>
-                    <option value="Trivandrum">Trivandrum</option>
-                    <option value="Kollam">Kollam</option>
-                    <option value="Pathanamthitta">Pathanamthitta</option>
-                    <option value="Alappuzha">Alappuzha</option>
-                    <option value="Kottayam">Kottayam</option>
-                    <option value="Idukki">Idukki</option>
-                    <option value="Thrissur">Thrissur</option>
-                    <option value="Palakkad">Palakkad</option>
-                    <option value="Malappuram">Malappuram</option>
-                    <option value="Kozhikodu">Kozhikodu</option>
-                    <option value="Wayanad">Wayanad</option>
-                    <option value="Kannur">Kannur</option>
-                    <option value="Kasaragod">Kasaragod</option>
-                </select>
-                <button type="submit" id="search" [routerLink]="'/customer/purchase'">Search</button>
+                <label for="bloodgroup">Blood Group</label>
+                <select name="bloodgroup" id="bloodgroup" placeholder="bloodgroup" [(ngModel)]="model.bloodid">
+                    <option value="1">A+</option>
+                    <option value="2">A-</option>
+                    <option value="3">B+</option>
+                    <option value="4">AB+</option>
+                    <option value="5">AB-</option>
+                    <option value="6">B-</option>
+                    <option value="7">O+</option>
+                    <option value="8">O-</option>
+                  </select>
+                  <label for="district">District</label>
+                <select name="district" id="district" placeholder="district" [(ngModel)]="model.districtid">
+                    <option value="1">Trivandrum</option>
+                    <option value="2">Kollam</option>
+                    <option value="3">Pathanamthitta</option>
+                    <option value="4">Kottayam</option>
+                    <option value="5">Ernakulam</option>
+                    <option value="6">Idukki</option>
+                    <option value="7">Alappuzha</option>
+                    <option value="8">Thrissur</option>
+                    <option value="9">Palakkad</option>
+                    <option value="10">Kozhikod</option>
+                    <option value="11">Wayand</option>
+                    <option value="12">Kannur</option>
+                    <option value="13">Malappuram</option>
+                    <option value="14">Kasargod</option>
+                  </select>
+                <button type="submit" id="search" (click)="saveData()" [routerLink]="'/customer/purchase'">Search</button>
                 <button [routerLink]="'/customer/booking'">Donate</button>
             </form>
         </div>

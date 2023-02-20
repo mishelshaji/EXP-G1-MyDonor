@@ -29,5 +29,10 @@ namespace MyDonor.WebApp.Controller.Admin
             }
             return Ok(manager);
         }
+
+        //public async Task<IActionResult> FeedbackView()
+        //{
+        //    var result = _service.Feedbacks();
+        //}
     }
 }

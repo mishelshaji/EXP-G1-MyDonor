@@ -60,6 +60,7 @@ builder.Services.AddScoped<BloodGroupService>();
 builder.Services.AddScoped<AccountsService>();
 builder.Services.AddScoped<BookingAndBuyingService>();
 builder.Services.AddScoped<FeedbackService>();
+builder.Services.AddScoped<ManagerService>();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

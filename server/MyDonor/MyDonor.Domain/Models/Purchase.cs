@@ -4,7 +4,6 @@ namespace MyDonor.Domain.Models
     public class Purchase
     {
         public int Id { get; set; }
-
         public int Quantity { get; set; }
 
         [ForeignKey(nameof(ApplicationUser))]
@@ -16,5 +15,10 @@ namespace MyDonor.Domain.Models
         [ForeignKey(nameof(BloodGroup))]
         public int BloodId { get; set; }
         public BloodGroup BloodGroup { get; set; }
+
+        [ForeignKey(nameof(District))]
+        public int? DistrictId { get; set; }
+
+        public District? District { get; set; }
     }
 }

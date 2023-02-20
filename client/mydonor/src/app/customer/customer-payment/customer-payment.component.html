@@ -4,11 +4,11 @@
     <div class="row">
         <div class="col-sm-6 ">
             <label for="totalunits" name="totalUnits">Total Units</label>
-            <input type="number" name="totalUnits" readonly>
+            <input type="number" name="totalUnits" readonly placeholder="{{unit}}">
         </div>
         <div class="col-sm-6">
             <label for="totalprice" name="totalPrice">Total Price</label>
-            <input type="number" name="totalPrice" readonly>
+            <input type="number" name="totalPrice" placeholder="{{price}}">
         </div>
     </div>
 
@@ -77,7 +77,7 @@
             <div *ngIf="cvv.errors?.['pattern']">Invalid format.</div>
         </div>
         <div class="container d-grid my-3 w-50 mt-3">
-            <button type="submit" class="btn btn-danger" [disabled]="form.invalid">PAY</button>
+            <button type="submit" class="btn btn-danger" [disabled]="form.invalid" (click)="buyBlood()">PAY</button>
         </div>
     </div>
     </form>
