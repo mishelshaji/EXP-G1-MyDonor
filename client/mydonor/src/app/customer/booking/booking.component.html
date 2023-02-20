@@ -40,7 +40,7 @@
       <h4>{{model.date}}</h4>
       <h4 class="text-danger">
         Trivandrum</h4>
-      <div class="timeschedule">
+      <div class="timeschedule" *ngIf="data">
         <ul *ngFor="let item of data.result">
           <p>{{item.time}}</p>
         </ul>

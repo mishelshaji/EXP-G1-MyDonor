@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -43,4 +44,16 @@ export class HomepageComponent {
       "District": "Ernakulam"
     }
   ]
+
+  model = {
+    districtid: "",
+    bloodid: ""
+  }
+  constructor(private router:Router){}
+  saveData(){
+   localStorage.setItem('districtid', this.model.districtid);
+   localStorage.setItem('bloodId', this.model.bloodid);
+   console.log(localStorage.getItem('districtid'));
+   this.router.navigate(['/customer/purchase']);
+  }
 }

@@ -23,8 +23,4 @@
     <ProjectReference Include="..\MyDonor.service\MyDonor.Service.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controller\Manager\" />
-  </ItemGroup>
-
 </Project>

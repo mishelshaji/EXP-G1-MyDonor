@@ -28,7 +28,7 @@ namespace MyDonor.WebApp.Controller.Customer.Controllers
             return Ok(result);
         }
 
-        [Authorize(Roles = "Customer")]
+        //[Authorize(Roles = "Customer")]
         [HttpPost("Customer/Booking")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -36,6 +36,36 @@ namespace MyDonor.WebApp.Controller.Customer.Controllers
         {
             var result = await _service.BookingsAsync(dto);
             if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
+        //[Authorize(Roles = "Customer")]
+        [HttpPost("Customer/Buying")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+
+        public async Task<IActionResult> BuyingAsync(BuyCreateDto dto)
+        {
+            var result = await _service.BuyingBloodAsync(dto);
+            if (result.IsValid)
+            {
+                return NotFound(result.Errors);
+            }
+            return Ok(result);
+        }
+
+        [Authorize(Roles = "Customer")]
+        [HttpGet("{bloodid}/{districtid}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+
+        public async Task<IActionResult> GetStockAsync(int bloodid, int districtid)
+        {
+            var result = await _service.StockAsync(bloodid, districtid);
+            if( result <= 0)
             {
                 return NotFound();
             }

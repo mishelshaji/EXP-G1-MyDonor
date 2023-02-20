@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BookingService } from 'src/app/services/booking.service';
+import { TokenHelper } from 'src/utilities/helpers/tokenHelper';
 
 @Component({
   selector: 'app-customer-payment',
@@ -9,6 +11,8 @@ import { Router } from '@angular/router';
 
 export class CustomerPaymentComponent {
   title = 'rough';
+  unit: number|any = localStorage.getItem('quantity');
+  price: number|any = this.unit * 200;
   model = {
     cardnumber: '',
     cardholder: '',
@@ -16,8 +20,16 @@ export class CustomerPaymentComponent {
     cvv: ''
   };
 
-  minDate: any = "2023-02";
+  data = {
+    quantity : this.unit,
+    amount : this.price,
+    districtId : localStorage.getItem('districtid'),
+    bloodId : localStorage.getItem('bloodId'),
+    userid : this.token.getDecodedToken().nameidentifier
+  }
 
+  minDate: any = "2023-02";
+  constructor(private router:Router, private service: BookingService, private token: TokenHelper){}
   getDate() {
     var date = new Date();
     var toDate = date.getDate();
@@ -25,7 +37,16 @@ export class CustomerPaymentComponent {
 
   payment() {
     console.log(this.model);
-
   }
+   buyBlood(){
+    this.service.buy(this.data).subscribe({
+      next:(Data)=>{
+      },
+      error:(err)=>{
+        console.error(err);
+        
+      }
+    })
+   }
 }
 

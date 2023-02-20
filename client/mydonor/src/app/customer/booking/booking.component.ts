@@ -15,15 +15,14 @@ export class BookingComponent {
     userid: ''
   };
 
-  data: any;
-
+  data : any;
   constructor(private token: TokenHelper, private service: BookingService) { }
 
   checkBooking() {
     this.model.userid = this.token.getDecodedToken().nameidentifier;
     this.service.getBookings(this.model).subscribe({
       next: (Data) => {
-        this.data = Data;
+        this.data = Data;        
       },
       error: (err) => {
         console.error(err);
