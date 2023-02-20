@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'customer',
-    canActivate: [CustomerGuard],
+    // canActivate: [CustomerGuard],
     loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule)
   },
   {
