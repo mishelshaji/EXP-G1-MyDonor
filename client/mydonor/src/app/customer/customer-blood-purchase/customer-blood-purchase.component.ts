@@ -7,42 +7,39 @@ import { BookingService } from 'src/app/services/booking.service';
   templateUrl: './customer-blood-purchase.component.html',
   styleUrls: ['./customer-blood-purchase.component.css']
 })
-export class CustomerBloodPurchaseComponent implements OnInit{
-  value:number|any = 1;
-  stock:number|any = 0;
-  status:boolean = false;
+export class CustomerBloodPurchaseComponent implements OnInit {
+  value: any = 1;
+  stock: any = 0;
+  status = false;
 
- constructor(private service: BookingService, private router: Router){}
+  constructor(private service: BookingService, private router: Router) { }
 
-  updateQuantity(symbol:string){
-   if(symbol === '+'){
-    this.value++;
-    console.log(this.value)
-   }
-   else if(symbol === '-'){
-    if(this.value === 1){
-      this.status = true;
-    }else{
-      this.value--;
-      console.log(this.value);
+  updateQuantity(symbol: string) {
+    if (symbol === '+') {
+      this.value++;
     }
-   }
+    else if (symbol === '-') {
+      if (this.value === 1) {
+        this.status = true;
+      } else {
+        this.value--;
+      }
+    }
   }
 
-  buyBlood(){
-    if(this.value >= this.stock ){
+  buyBlood() {
+    if (this.value >= this.stock) {
       alert("purchase not possible");
     }
     localStorage.setItem("quantity", this.value);
     this.router.navigate(['/customer/payment']);
   }
-  ngOnInit(){
+  ngOnInit() {
     let bloodId = localStorage.getItem('bloodId');
     let district = localStorage.getItem('districtid');
-    this.service.getStock(bloodId,district).subscribe({
-      next:(Data)=>{
+    this.service.getStock(bloodId, district).subscribe({
+      next: (Data) => {
         this.stock = Data;
-        console.log(Data);
       }
     })
   }
