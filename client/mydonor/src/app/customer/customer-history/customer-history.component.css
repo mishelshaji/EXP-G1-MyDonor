@@ -7,20 +7,7 @@
   background-size: cover;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.history {
-  flex-basis: 48%;
-  box-shadow: 10px 10px 20px -1px rgba(0, 0, 0, 0.2),
-    -10px -10px 20px -1px rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  height: 100%;
-  padding: 2rem;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  overflow-y: scroll;
-  margin-bottom: 1rem;
+  justify-content: center;
 }
 
 .history::-webkit-scrollbar {
@@ -52,12 +39,6 @@ h2 {
 @media only screen and (max-width:900px) {
   .main {
     padding: 5rem 1rem;
-  }
-
-  .history {
-    flex-basis: 100%;
-    margin-bottom: 3rem;
-    height: 20rem;
   }
 
   .active-appoinments {

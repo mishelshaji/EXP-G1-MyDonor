@@ -63,3 +63,7 @@ button {
   padding: 1rem;
   border-radius: 5px;
 }
+
+.display-district {
+  -webkit-appearance: none;
+}

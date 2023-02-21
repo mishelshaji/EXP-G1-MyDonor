@@ -9,8 +9,10 @@ export class AccountsService {
   url = "https://localhost:7197/api/accounts";
   feedback = "https://localhost:7197/api/Feedbacks";
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) { }
 
+  authenticate(otp: number, userid: string | null) {
+    return this.http.get(this.url + '/customer/' + userid + '/' + otp);
   }
 
   login(model: LoginDto) {
@@ -31,5 +33,9 @@ export class AccountsService {
 
   feedbackReg(model: any, id: string) {
     return this.http.post(this.feedback + "/" + id, model);
+  }
+
+  getFeedback() {
+    return this.http.get(this.url + '/admin');
   }
 }

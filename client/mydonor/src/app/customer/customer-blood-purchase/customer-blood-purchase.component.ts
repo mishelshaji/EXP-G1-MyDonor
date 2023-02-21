@@ -28,11 +28,13 @@ export class CustomerBloodPurchaseComponent implements OnInit {
   }
 
   buyBlood() {
+    localStorage.setItem("quantity", this.value);
     if (this.value >= this.stock) {
       alert("purchase not possible");
     }
-    localStorage.setItem("quantity", this.value);
+    if(this.stock != 0){
     this.router.navigate(['/customer/payment']);
+    }
   }
   ngOnInit() {
     let bloodId = localStorage.getItem('bloodId');

@@ -33,19 +33,34 @@
         <option value="03:00-03:30">03:00 - 03:30 PM</option>
         <option value="03:30-04:00">03:30 - 04:00 PM</option>
       </select>
-      <button type="submit" class="btn btn-danger mt-3" (click)="saveData()">Search Bookings</button>
+      <button type="submit" class="btn btn-danger mt-3" (click)="saveData()">Book</button>
     </form>
     <!-- ---slot-window--- -->
     <div class="slots">
       <h4>{{model.date}}</h4>
-      <h4 class="text-danger">
-        Trivandrum</h4>
+      <h4 class="text-danger" >
+        <select name="district" id="district" *ngIf="model.districtid" class="display-district" [value]="model.districtid">
+          <option value="1">Trivandrum</option>
+          <option value="2">Kollam</option>
+          <option value="3">Pathanamthitta</option>
+          <option value="4">Kottayam</option>
+          <option value="5">Ernakulam</option>
+          <option value="6">Idukki</option>
+          <option value="7">Alappuzha</option>
+          <option value="8">Thrissur</option>
+          <option value="9">Palakkad</option>
+          <option value="10">Kozhikod</option>
+          <option value="11">Wayand</option>
+          <option value="12">Kannur</option>
+          <option value="13">Malappuram</option>
+          <option value="14">Kasargod</option>
+        </select></h4>
       <div class="timeschedule" *ngIf="data">
         <ul *ngFor="let item of data.result">
           <p>{{item.time}}</p>
         </ul>
       </div>
     </div>
-    
+
   </div>
 </section>

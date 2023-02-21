@@ -12,7 +12,7 @@ using MyDonor.service.Data;
 namespace MyDonor.Service.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230220082953_Initial")]
+    [Migration("20230221105500_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -471,11 +471,37 @@ namespace MyDonor.Service.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ApplicationUserId");
 
                     b.ToTable("Feedbacks");
+                });
+
+            modelBuilder.Entity("MyDonor.Domain.Models.Otp", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("OtpNumber")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("Otps");
                 });
 
             modelBuilder.Entity("MyDonor.Domain.Models.Payment", b =>
@@ -593,6 +619,9 @@ namespace MyDonor.Service.Migrations
                     b.Property<string>("Roles")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Verified")
+                        .HasColumnType("bit");
+
                     b.HasIndex("BloodId");
 
                     b.HasIndex("DistrictId");
@@ -680,6 +709,17 @@ namespace MyDonor.Service.Migrations
                 });
 
             modelBuilder.Entity("MyDonor.Domain.Models.Feedback", b =>
+                {
+                    b.HasOne("MyDonor.Domain.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+                });
+
+            modelBuilder.Entity("MyDonor.Domain.Models.Otp", b =>
                 {
                     b.HasOne("MyDonor.Domain.Models.ApplicationUser", "ApplicationUser")
                         .WithMany()

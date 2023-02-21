@@ -10,6 +10,10 @@ export class BookingService {
 
   constructor(private http: HttpClient) { }
 
+  deleteAppointments(userid: string) {
+    return this.http.delete(this.stock + '/' + userid);
+  }
+
   getBookings(model: any) {
     return this.http.post(this.url + "/BookingDetail", model);
   }
@@ -24,5 +28,9 @@ export class BookingService {
 
   getStock(bloodId: any, district: any) {
     return this.http.get(this.stock + '/' + bloodId + '/' + district);
+  }
+
+  getAppointment(userid: string) {
+    return this.http.get(this.stock + '/' + 'appointment' + '/' + userid);
   }
 }

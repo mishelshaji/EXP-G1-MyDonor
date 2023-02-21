@@ -199,5 +199,7 @@ namespace MyDonor.service.Data
         public DbSet<Purchase> Purchases { get; set;}
 
         public DbSet<Stock> Stocks { get; set; }
+
+        public DbSet<Otp> Otps { get; set; }
     }
 }
