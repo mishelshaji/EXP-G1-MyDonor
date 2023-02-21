@@ -23,6 +23,8 @@ namespace MyDonor.Domain.Models
 
         public string? Roles { get; set; }
 
+        public bool Verified { get; set; }
+
         public IEnumerable<Purchase> Purchases { get; set; }
     }
 }

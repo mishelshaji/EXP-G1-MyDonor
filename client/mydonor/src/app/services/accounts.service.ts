@@ -11,8 +11,8 @@ export class AccountsService {
 
   constructor(private http: HttpClient) { }
 
-  Authenticate(otp:number, userid: string|null){
-     return this.http.get(this.url + '/customer/' + userid + '/' + otp);
+  authenticate(otp: number, userid: string | null) {
+    return this.http.get(this.url + '/customer/' + userid + '/' + otp);
   }
 
   login(model: LoginDto) {
@@ -35,7 +35,7 @@ export class AccountsService {
     return this.http.post(this.feedback + "/" + id, model);
   }
 
-  getFeedback(){
+  getFeedback() {
     return this.http.get(this.url + '/admin');
   }
 }

@@ -9,10 +9,10 @@ export class BookingService {
   stock = "https://localhost:7197/api/CustomerBuyAndBookings";
 
   constructor(private http: HttpClient) { }
- 
- deleteAppointments(userid:string){
-   return this.http.delete(this.stock + '/' + userid);
- }
+
+  deleteAppointments(userid: string) {
+    return this.http.delete(this.stock + '/' + userid);
+  }
 
   getBookings(model: any) {
     return this.http.post(this.url + "/BookingDetail", model);
@@ -30,7 +30,7 @@ export class BookingService {
     return this.http.get(this.stock + '/' + bloodId + '/' + district);
   }
 
-  getAppointment(userid: string){
+  getAppointment(userid: string) {
     return this.http.get(this.stock + '/' + 'appointment' + '/' + userid);
   }
 }

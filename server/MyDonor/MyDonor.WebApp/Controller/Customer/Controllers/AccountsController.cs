@@ -28,7 +28,6 @@ namespace MyDonor.WebApp.Controller.Customer.Controllers
         [HttpGet("customer/{userid}/{otp}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-
         public async Task<IActionResult> CheckOtp(string userid, int otp)
         {
             var result = await _service.CheckOtpValidityAsync(userid, otp);

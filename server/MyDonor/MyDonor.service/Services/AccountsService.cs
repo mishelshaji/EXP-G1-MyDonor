@@ -55,7 +55,8 @@ namespace MyDonor.service.Services
                 Address = dto.Address,
                 DistrictId = dto.District,
                 BloodId = dto.BloodId,
-                UserName = Guid.NewGuid().ToString()
+                UserName = Guid.NewGuid().ToString(),
+                Verified = false
             };
 
             var userstatus = await _userManager.CreateAsync(user, dto.Password);
@@ -87,17 +88,28 @@ namespace MyDonor.service.Services
 
         public async Task<bool> CheckOtpValidityAsync(string userid, int otp)
         {
-            var userotp = await _db.Otps.FirstOrDefaultAsync(m=> m.ApplicationUserId == userid && m.OtpNumber == otp);
+            var userotp = await _db.Otps.FirstOrDefaultAsync(m => m.ApplicationUserId == userid && m.OtpNumber == otp);
             if (userotp == null)
             {
                 return false;
             }
+            var status = await _db.ApplicationUsers.FirstOrDefaultAsync(m => m.Id == userid);
+            if (status == null)
+            {
+                return false;
+            }
+            status.Verified = true;
+            _db.SaveChanges();
             return true;
         }
         public async Task<ServiceResponse<string>> LoginAsync(LoginDto dto)
         {
             var response = new ServiceResponse<string>();
-
+            var status = await _db.ApplicationUsers.FirstOrDefaultAsync(m => m.Email == dto.Email && m.Verified == true);
+            if (status == null)
+            {
+                response.AddError("user", "email not verified");
+            }
             var user = await _userManager.FindByEmailAsync(dto.Email);
             if (user == null)
             {
@@ -266,7 +278,7 @@ namespace MyDonor.service.Services
                 In Case Of Emergency.Feel Free To Contact Us."
             };
 
-            string Email = _configuration["Email:Id"]; 
+            string Email = _configuration["Email:Id"];
             string password = _configuration["Email:Password"];
 
             // creating a mail client
@@ -296,4 +308,4 @@ namespace MyDonor.service.Services
             }
         }
     }
- }
+}

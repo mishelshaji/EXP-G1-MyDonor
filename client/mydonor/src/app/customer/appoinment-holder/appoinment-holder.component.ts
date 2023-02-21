@@ -7,34 +7,33 @@ import { TokenHelper } from 'src/utilities/helpers/tokenHelper';
   templateUrl: './appoinment-holder.component.html',
   styleUrls: ['./appoinment-holder.component.css']
 })
-export class AppoinmentHolderComponent implements OnInit{
- appointment : any |null;
- userid = this.token.getDecodedToken().nameidentifier;
-  constructor(private token: TokenHelper, private service: BookingService){}
-  
-  deleteAppointment(){
-   this.service.deleteAppointments(this.userid).subscribe({
-    next:(Data)=>{
-      console.log(Data);
-      this.appointment = "";
-      alert("Deleted Successfully")
-      window.location.reload;
-    },
-    error:(err)=>{
-      console.error(err);
-    }
-   })
+export class AppoinmentHolderComponent implements OnInit {
+  appointment: any | null;
+  userid = this.token.getDecodedToken().nameidentifier;
+  constructor(private token: TokenHelper, private service: BookingService) { }
+
+  deleteAppointment() {
+    this.service.deleteAppointments(this.userid).subscribe({
+      next: (Data) => {
+        this.appointment = "";
+        alert("Deleted Successfully");
+        window.location.reload;
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    })
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.service.getAppointment(this.userid).subscribe({
-      next:(Data)=>{
-        if( Data){
-        this.appointment = Data;
+      next: (Data) => {
+        if (Data) {
+          this.appointment = Data;
         }
       },
-      error:(err)=>{
-        console.error(err); 
+      error: (err) => {
+        console.error(err);
       }
     })
   }

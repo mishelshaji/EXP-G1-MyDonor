@@ -229,6 +229,7 @@ namespace MyDonor.Service.Services
             Response.Result= "Deleted";
             return Response;
         }
+
         public async Task<int> StockAsync(int bloodid, int districtid)
         {
             var managers = await _db.ApplicationUsers.FirstOrDefaultAsync(m => m.Roles == "Manager" && m.DistrictId == districtid);
