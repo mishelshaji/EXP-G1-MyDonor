@@ -9,6 +9,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using MailKit.Net.Smtp;
+using MimeKit;
 
 namespace MyDonor.service.Services
 {
@@ -40,7 +42,7 @@ namespace MyDonor.service.Services
             var useremail = await _userManager.FindByEmailAsync(dto.email);
             if (useremail != null)
             {
-                Response.AddError("", "An account with this email exist.");
+                Response.AddError("Account", "An account with this email exist.");
                 return Response;
             }
             var user = new ApplicationUser
@@ -65,13 +67,33 @@ namespace MyDonor.service.Services
             await _userManager.AddToRoleAsync(user, "Customer");
             Response.Result = new RegisterViewDto
             {
-                Id = user.UserName,
+                Id = user.Id,
                 Name = dto.Name,
                 Email = dto.email,
             };
+            int status = EmailGenerate(dto.email, dto.Name);
+            if (status != 0)
+            {
+                var otpnumber = new Otp()
+                {
+                    ApplicationUserId = user.Id,
+                    OtpNumber = status
+                };
+                _db.Add(otpnumber);
+                _db.SaveChanges();
+            }
             return Response;
         }
 
+        public async Task<bool> CheckOtpValidityAsync(string userid, int otp)
+        {
+            var userotp = await _db.Otps.FirstOrDefaultAsync(m=> m.ApplicationUserId == userid && m.OtpNumber == otp);
+            if (userotp == null)
+            {
+                return false;
+            }
+            return true;
+        }
         public async Task<ServiceResponse<string>> LoginAsync(LoginDto dto)
         {
             var response = new ServiceResponse<string>();
@@ -217,5 +239,61 @@ namespace MyDonor.service.Services
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        private int EmailGenerate(string email, string name)
+        {
+            // creating the message in which we store message details
+            MimeMessage message = new MimeMessage();
+
+            //details of sender
+            message.From.Add(new MailboxAddress("Admin", "mydonorservice@gmail.com"));
+
+            // details of reciever
+            message.To.Add(new MailboxAddress(name, email));
+
+            Random Random = new Random();
+            var otp = Random.Next(000000, 999999);
+
+            // email subject
+            message.Subject = "MyDonor OTP for Registration";
+
+            //body of email
+            message.Body = new TextPart("plain")
+            {
+                Text = @$" Welcome to MyDonor Blood Donating Service.
+                OTP for MyDonor website is - {otp}.
+                We Are Here To Help You With Any Kind Of Support
+                In Case Of Emergency.Feel Free To Contact Us."
+            };
+
+            string Email = _configuration["Email:Id"]; 
+            string password = _configuration["Email:Password"];
+
+            // creating a mail client
+            SmtpClient client = new SmtpClient();
+
+            try
+            {
+                // connecting to gmail smtp and using the 465 port and ssl enabled is true.
+                client.Connect("smtp.gmail.com", 587);
+
+                // Authenticate sender using email and password.
+                client.Authenticate(Email, password);
+                client.Send(message);
+                return otp;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+            finally
+            {
+                // disconnect the client
+                client.Disconnect(true);
+
+                // dispose client object
+                client.Dispose();
+            }
+        }
     }
-}
+ }

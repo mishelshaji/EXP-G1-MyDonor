@@ -53,7 +53,6 @@ export class HomepageComponent {
   saveData(){
    localStorage.setItem('districtid', this.model.districtid);
    localStorage.setItem('bloodId', this.model.bloodid);
-   console.log(localStorage.getItem('districtid'));
    this.router.navigate(['/customer/purchase']);
   }
 }

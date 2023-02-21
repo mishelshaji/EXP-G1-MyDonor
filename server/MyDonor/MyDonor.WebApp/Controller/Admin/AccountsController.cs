@@ -11,9 +11,12 @@ namespace MyDonor.WebApp.Controller.Admin
     {
         private readonly AccountsService _service;
 
-        public AccountsController(AccountsService service)
+        private readonly FeedbackService _feedback;
+
+        public AccountsController(AccountsService service, FeedbackService feeddback)
         {
             _service = service;
+            _feedback = feeddback;
         }
 
         [HttpPost("Manager")]
@@ -30,9 +33,17 @@ namespace MyDonor.WebApp.Controller.Admin
             return Ok(manager);
         }
 
-        //public async Task<IActionResult> FeedbackView()
-        //{
-        //    var result = _service.Feedbacks();
-        //}
+        [HttpGet("Admin")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> FeedbackView()
+        {
+            var result = _feedback.FeedbacksAsync();
+            if( result == null )
+            {
+                return BadRequest();
+            }
+            return Ok(result);
+        }
     }
 }

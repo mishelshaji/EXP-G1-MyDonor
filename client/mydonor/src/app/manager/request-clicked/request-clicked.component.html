@@ -1,5 +1,6 @@
 <div class="requests">
   <button (click)="viewStock()">View Units</button>
+  <div *ngIf="data">
   <h5 *ngFor="let item of data.result" class="stock me-3">
     <p>{{item.quantity}} Units</p>
     <select name="blood" id="blood" [value]="item.bloodGroup">
@@ -13,4 +14,5 @@
       <option value="8">O-</option>
     </select>
   </h5>
+</div>
 </div>

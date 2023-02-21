@@ -32,8 +32,8 @@ export class SignupComponent {
   signupCustomer() {
     this.signupservice.signup(this.userData).subscribe({
       next: (Data) => {
-        console.log(Data);
-        this.router.navigate(['/user/login']);
+        localStorage.setItem("userid",Data.id.toString());
+        this.router.navigate(['/user/otp']);
       },
       error: (err) => {
         console.error(err);

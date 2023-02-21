@@ -186,6 +186,49 @@ namespace MyDonor.Service.Services
             return Response;
         }
 
+        public async Task<ServiceResponse<AppointmentViewDto>> GetAppointmentsAsync(string userid)
+        {
+            var Response = new ServiceResponse<AppointmentViewDto>();
+            var appointment = await _db.Appointments.FirstOrDefaultAsync(m => m.CustomerId == userid);
+            if (appointment == null)
+            {
+                Response.AddError("Appointment", "appointment does not exist");
+                return Response;
+            }
+            Response.Result = new()
+            {
+                Date = appointment.Date,
+                Time = appointment.Time,
+            };
+            return Response;
+        }
+
+        public async Task<ServiceResponse<string>> DeleteAppointmentAsync(string userid)
+        {
+            var Response = new ServiceResponse<string>();
+            var appointment = await _db.Appointments.FirstOrDefaultAsync(m => m.CustomerId == userid);
+            if (appointment == null)
+            {
+                Response.AddError("Appointment", "appointment does not exist");
+                return Response;
+            }
+            var user = await _db.ApplicationUsers.FirstOrDefaultAsync(m => m.Id == userid);
+            var stock = await _db.Stocks.FirstOrDefaultAsync(m => m.BloodBankId == appointment.BloodBankId && m.BloodGroupId == user.BloodId);
+            if (stock == null)
+            {
+                Response.AddError("stock", "stock does not exist");
+                return Response;
+            }
+            if( stock.Quantity == 1 )
+            {
+                _db.Remove(stock);
+            }
+            stock.Quantity -= 1;
+            _db.Remove(appointment);
+            _db.SaveChanges();
+            Response.Result= "Deleted";
+            return Response;
+        }
         public async Task<int> StockAsync(int bloodid, int districtid)
         {
             var managers = await _db.ApplicationUsers.FirstOrDefaultAsync(m => m.Roles == "Manager" && m.DistrictId == districtid);

@@ -18,6 +18,7 @@ export class CustomerFeedbackComponent {
     let id = this.token.getDecodedToken().nameidentifier;
     this.service.feedbackReg(this.model, id).subscribe({
       next: (Data) => {
+        console.log(Data);
       }
     })
   }

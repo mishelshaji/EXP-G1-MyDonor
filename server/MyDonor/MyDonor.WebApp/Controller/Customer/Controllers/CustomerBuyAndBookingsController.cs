@@ -28,7 +28,7 @@ namespace MyDonor.WebApp.Controller.Customer.Controllers
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Customer")]
+        [Authorize(Roles = "Customer")]
         [HttpPost("Customer/Booking")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -42,7 +42,7 @@ namespace MyDonor.WebApp.Controller.Customer.Controllers
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Customer")]
+        [Authorize(Roles = "Customer")]
         [HttpPost("Customer/Buying")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -53,6 +53,34 @@ namespace MyDonor.WebApp.Controller.Customer.Controllers
             if (result.IsValid)
             {
                 return NotFound(result.Errors);
+            }
+            return Ok(result);
+        }
+
+        [HttpGet("appointment/{userid}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+
+        public async Task<IActionResult> AppointmentDetails(string userid)
+        {
+            var result = await _service.GetAppointmentsAsync(userid);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
+        [HttpDelete("{userid}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+
+        public async Task<IActionResult> AppointmentDelete(string userid) 
+        {
+            var result = await _service.DeleteAppointmentAsync(userid);
+            if (result.IsValid)
+            {
+                return NotFound();
             }
             return Ok(result);
         }

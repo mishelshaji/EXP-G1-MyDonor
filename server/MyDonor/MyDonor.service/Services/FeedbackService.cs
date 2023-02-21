@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyDonor.Service.Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,7 @@ namespace MyDonor.service.Services
             {
                 ApplicationUserId = id,
                 Content = dto.Content,
+                Name = user.Name
             };
             _db.Feedbacks.Add(feedback);
             await _db.SaveChangesAsync();
@@ -35,14 +37,17 @@ namespace MyDonor.service.Services
             Response.Result = new FeedbackViewDto
             {
                 Id = feedback.Id,
-                Content = feedback.Content
+                Content = feedback.Content,
+                Name = user.Name
             };
             return Response;
         }
 
-        //public async Task<ServiceResponse<List<FeedbackViewDto>>> Feedback()
-        //{
-        //    var Response = new ServiceResponse<List<FeedbackViewDto>>();
-        //}
+        public ServiceResponse<List<AdminFeedbackViewDto>> FeedbacksAsync()
+        {
+            var Response = new ServiceResponse<List<AdminFeedbackViewDto>>();
+            Response.Result = _db.Feedbacks.Select(m => new AdminFeedbackViewDto(m.Content,m.Name)).ToList();
+            return Response;
+          }
     }
 }

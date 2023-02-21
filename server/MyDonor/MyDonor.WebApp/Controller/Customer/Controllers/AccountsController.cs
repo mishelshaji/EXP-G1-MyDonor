@@ -24,5 +24,19 @@ namespace MyDonor.WebApp.Controller.Customer.Controllers
             }
          return BadRequest(result.Errors);
         }
+
+        [HttpGet("customer/{userid}/{otp}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
+        public async Task<IActionResult> CheckOtp(string userid, int otp)
+        {
+            var result = await _service.CheckOtpValidityAsync(userid, otp);
+            if (result == true)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }
