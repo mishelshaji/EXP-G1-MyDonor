@@ -28,7 +28,7 @@ namespace MyDonor.WebApp.Controller.Customer.Controllers
             return Ok(result);
         }
 
-        [Authorize(Roles = "Customer")]
+        //[Authorize(Roles = "Customer")]
         [HttpPost("Customer/Booking")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

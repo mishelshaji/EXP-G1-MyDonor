@@ -18,11 +18,11 @@ export class CustomerGuard implements CanActivate {
     const hasToken = this.tokenHelper.hasToken();
     let role = this.tokenHelper.getDecodedToken();
     if (!hasToken) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/user/login']);
       return false;
     }
     if ( role.userrole !== "Customer" ){
-      this.router.navigate(['/login']);
+      this.router.navigate(['/user/login']);
       return false;
     }
     return true;

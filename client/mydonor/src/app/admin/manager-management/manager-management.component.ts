@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./manager-management.component.css']
 })
 export class ManagerManagementComponent {
+  district = '';
 
+  updateManager(){
+    console.log(this.district);
+    localStorage.setItem('district', this.district);
+  }
 }

@@ -38,4 +38,8 @@ export class AccountsService {
   getFeedback() {
     return this.http.get(this.url + '/admin');
   }
+
+  updateManager(email:string, district: any){
+    return this.http.post(this.url + '/ManagerUpdate', {email, district});
+  }
 }

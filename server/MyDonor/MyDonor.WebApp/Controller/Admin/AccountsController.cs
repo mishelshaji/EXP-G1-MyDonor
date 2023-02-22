@@ -45,5 +45,19 @@ namespace MyDonor.WebApp.Controller.Admin
             }
             return Ok(result);
         }
+
+        [HttpPost("ManagerUpdate")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
+        public async Task<IActionResult> ManagerUpdate(ManagerUpdateDto dto)
+        {
+            var result = await _service.UpdateManager(dto);
+            if( result == null)
+            {
+                return BadRequest();
+            }
+            return Ok(result);
+        }
     }
 }

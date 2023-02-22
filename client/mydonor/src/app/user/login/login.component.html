@@ -37,5 +37,8 @@
                 </div>
             </form>
         </div>
+        <ngb-toast *ngIf="!text" [ngbPopover]="text" ngClass="bg-danger" class="warning">
+            GeeksforGeeks Angular ng bootstrap
+        </ngb-toast>
     </div>
 </div>

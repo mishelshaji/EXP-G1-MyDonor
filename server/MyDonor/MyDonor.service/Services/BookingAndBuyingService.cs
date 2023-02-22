@@ -60,10 +60,19 @@ namespace MyDonor.Service.Services
         {
             var Response = new ServiceResponse<string>();
             var userbooking = await _db.Appointments.FirstOrDefaultAsync(m => m.CustomerId == dto.userId);
+
             if (userbooking != null)
             {
-                Response.AddError("appointment", "user cant book");
-                return Response;
+
+                DateTime bookingDate = Convert.ToDateTime(userbooking.Date);
+                DateTime futuredate = Convert.ToDateTime(dto.Date);
+                int numberOfDays = (int)(bookingDate - futuredate).TotalDays;
+                numberOfDays = Math.Abs(numberOfDays);
+                if (numberOfDays < 90)
+                {
+                    Response.AddError("appointment", $"Last booking was {numberOfDays} Days ago.");
+                    return Response;
+                }
             }
             var managers = await _db.ApplicationUsers.FirstOrDefaultAsync(m => m.Roles == "Manager" && m.DistrictId == dto.DistrictId);
             if (managers == null)
