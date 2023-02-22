@@ -195,7 +195,8 @@ namespace MyDonor.service.Services
                 UserName = Guid.NewGuid().ToString(),
                 Email = dto.Email,
                 DistrictId = dto.District,
-                Roles = "Manager"
+                Roles = "Manager",
+                Verified = true
             };
 
             var res = await _userManager.CreateAsync(ManagerUser, dto.Password);
@@ -220,6 +221,20 @@ namespace MyDonor.service.Services
             return Response;
         }
 
+        public async Task<ServiceResponse<string>> UpdateManager(ManagerUpdateDto dto)
+        {
+            var Response = new ServiceResponse<string>();
+            var manager = await _db.ApplicationUsers.FirstOrDefaultAsync(m => m.DistrictId == dto.District && m.Roles == "Manager");
+            if( manager == null )
+            {
+                Response.AddError("manager", "manager does not exist");
+                return Response;
+            }
+            manager.Email = dto.Email;
+            _db.SaveChanges();
+            Response.Result = "updated sucessfully";
+            return Response;
+        }
         private string GenerateToken(ApplicationUser user)
         {
             var role = _userManager.GetRolesAsync(user)

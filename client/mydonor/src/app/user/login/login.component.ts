@@ -9,6 +9,7 @@ import { TokenHelper } from 'src/utilities/helpers/tokenHelper';
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+    text: string|null = "";
     model: LoginDto = {
         email: '',
         password: ''
@@ -28,7 +29,7 @@ export class LoginComponent {
                     this.router.navigateByUrl('/manager/home');
                 }
                 else if (role.userrole === "Customer") {
-                    this.router.navigateByUrl('/customer/profile');
+                    this.router.navigateByUrl('/customer/home');
                 }
             }
         })

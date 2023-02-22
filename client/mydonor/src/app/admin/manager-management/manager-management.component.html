@@ -1,28 +1,31 @@
 <div class="hero">
-    <div class="register">
-        <button type="submit" 
-        class="btn btn-success"
-        [routerLink]="'/admin/managers/register'">
-            Register
-        </button>
-    </div>
+  <div class="register">
+    <button type="submit" class="btn btn-success mb-4" [routerLink]="'/admin/managers/register'">
+      Register New Manager
+    </button>
+  </div>
+  <div class="d-flex align-items-center justify-content-center vh-100">
     <div class="manager-holder">
-        <app-managerview></app-managerview>
-        <app-managerview></app-managerview>
-        <app-managerview></app-managerview>
-        <app-managerview></app-managerview>
-        <app-managerview></app-managerview>
-        <app-managerview></app-managerview>
-        <app-managerview></app-managerview>
-        <app-managerview></app-managerview>
-        <app-managerview></app-managerview>
-        <app-managerview></app-managerview>
-        <app-managerview></app-managerview>
-        <app-managerview></app-managerview>
-        <app-managerview></app-managerview>
-        <app-managerview></app-managerview>
-        <app-managerview></app-managerview>
-        <app-managerview></app-managerview>
-        <app-managerview></app-managerview>
+      <form>
+        <label for="district" class="mb-3">District</label>
+        <select name="district" id="district" class="mb-3" name="district" [(ngModel)]="district" (click)="updateManager()">
+          <option value="1">Trivandrum</option>
+          <option value="2">Kollam</option>
+          <option value="3">Pathanamthitta</option>
+          <option value="4">Kottayam</option>
+          <option value="5">Ernakulam</option>
+          <option value="6">Idukki</option>
+          <option value="7">Alappuzha</option>
+          <option value="8">Thrissur</option>
+          <option value="9">Palakkad</option>
+          <option value="10">Kozhikod</option>
+          <option value="11">Wayand</option>
+          <option value="12">Kannur</option>
+          <option value="13">Malappuram</option>
+          <option value="14">Kasargod</option>
+        </select>
+      </form>
+      <app-managerview *ngIf="district"></app-managerview>
     </div>
+  </div>
 </div>
